@@ -1,0 +1,31 @@
+<meta charset="UTF-8">
+
+<script>
+
+    function pulaLinha() {
+        document.write("<br/>");
+    }
+
+    function mostra(frase) {
+        document.write(frase);
+        pulaLinha();
+    }
+
+    function pedeInteiro(frase) {
+        return parseInt(prompt(frase));
+    }
+
+    function acertou(numero) {
+        numeroEscolhido = Math.round(Math.random()*10);
+        if(numero == numeroEscolhido) {
+        mostra("Parabéns, você acertou!");
+        }else{
+        mostra("Que pena, você errou. O número certo era "+ numeroEscolhido);
+        }
+        
+    }
+
+    numero = pedeInteiro("Chute um número entre 0 e 10!");
+    numeroEscolhido = acertou(numero);
+    
+</script>
