@@ -1,0 +1,16 @@
+C:\Users\Usuario\Documents\Studies\BootcampGFT\dotnet_csharp\prática\bin\Debug\net5.0\prática.exe
+C:\Users\Usuario\Documents\Studies\BootcampGFT\dotnet_csharp\prática\bin\Debug\net5.0\prática.deps.json
+C:\Users\Usuario\Documents\Studies\BootcampGFT\dotnet_csharp\prática\bin\Debug\net5.0\prática.runtimeconfig.json
+C:\Users\Usuario\Documents\Studies\BootcampGFT\dotnet_csharp\prática\bin\Debug\net5.0\prática.runtimeconfig.dev.json
+C:\Users\Usuario\Documents\Studies\BootcampGFT\dotnet_csharp\prática\bin\Debug\net5.0\prática.dll
+C:\Users\Usuario\Documents\Studies\BootcampGFT\dotnet_csharp\prática\bin\Debug\net5.0\ref\prática.dll
+C:\Users\Usuario\Documents\Studies\BootcampGFT\dotnet_csharp\prática\bin\Debug\net5.0\prática.pdb
+C:\Users\Usuario\Documents\Studies\BootcampGFT\dotnet_csharp\prática\obj\Debug\net5.0\prática.csprojAssemblyReference.cache
+C:\Users\Usuario\Documents\Studies\BootcampGFT\dotnet_csharp\prática\obj\Debug\net5.0\prática.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Usuario\Documents\Studies\BootcampGFT\dotnet_csharp\prática\obj\Debug\net5.0\prática.AssemblyInfoInputs.cache
+C:\Users\Usuario\Documents\Studies\BootcampGFT\dotnet_csharp\prática\obj\Debug\net5.0\prática.AssemblyInfo.cs
+C:\Users\Usuario\Documents\Studies\BootcampGFT\dotnet_csharp\prática\obj\Debug\net5.0\prática.csproj.CoreCompileInputs.cache
+C:\Users\Usuario\Documents\Studies\BootcampGFT\dotnet_csharp\prática\obj\Debug\net5.0\prática.dll
+C:\Users\Usuario\Documents\Studies\BootcampGFT\dotnet_csharp\prática\obj\Debug\net5.0\ref\prática.dll
+C:\Users\Usuario\Documents\Studies\BootcampGFT\dotnet_csharp\prática\obj\Debug\net5.0\prática.pdb
+C:\Users\Usuario\Documents\Studies\BootcampGFT\dotnet_csharp\prática\obj\Debug\net5.0\prática.genruntimeconfig.cache
