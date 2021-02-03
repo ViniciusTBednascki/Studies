@@ -1,0 +1,23 @@
+<meta charset="UTF-8">
+
+<script>
+    function pulaLinha(){
+        document.write("<br><hr><br>");
+    }
+    function titulo(frase) {
+        document.write("<h1>"+frase+"</h1>");
+    }
+
+    function paragrafo(frase) {
+        document.write(frase);
+        pulaLinha();
+    }
+
+    var anosPassados = 2019-1500
+    var anosGeracao = 28
+    var geracoesPassadas = Math.round(anosPassados/anosGeracao)
+
+    titulo("Gerações passadas desde de 1500")
+    paragrafo("o número de gerações que se passaram foi: "+geracoesPassadas)
+
+</script>

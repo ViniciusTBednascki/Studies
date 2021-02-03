@@ -1,0 +1,16 @@
+C:\Users\Usuario\Documents\Studies\BootcampGFT\dotnet_csharp\02-exemplos\obj\Debug\net5.0\exemplos02.csprojAssemblyReference.cache
+C:\Users\Usuario\Documents\Studies\BootcampGFT\dotnet_csharp\02-exemplos\obj\Debug\net5.0\exemplos02.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Usuario\Documents\Studies\BootcampGFT\dotnet_csharp\02-exemplos\obj\Debug\net5.0\exemplos02.AssemblyInfoInputs.cache
+C:\Users\Usuario\Documents\Studies\BootcampGFT\dotnet_csharp\02-exemplos\obj\Debug\net5.0\exemplos02.AssemblyInfo.cs
+C:\Users\Usuario\Documents\Studies\BootcampGFT\dotnet_csharp\02-exemplos\obj\Debug\net5.0\exemplos02.csproj.CoreCompileInputs.cache
+C:\Users\Usuario\Documents\Studies\BootcampGFT\dotnet_csharp\02-exemplos\bin\Debug\net5.0\exemplos02.exe
+C:\Users\Usuario\Documents\Studies\BootcampGFT\dotnet_csharp\02-exemplos\bin\Debug\net5.0\exemplos02.deps.json
+C:\Users\Usuario\Documents\Studies\BootcampGFT\dotnet_csharp\02-exemplos\bin\Debug\net5.0\exemplos02.runtimeconfig.json
+C:\Users\Usuario\Documents\Studies\BootcampGFT\dotnet_csharp\02-exemplos\bin\Debug\net5.0\exemplos02.runtimeconfig.dev.json
+C:\Users\Usuario\Documents\Studies\BootcampGFT\dotnet_csharp\02-exemplos\bin\Debug\net5.0\exemplos02.dll
+C:\Users\Usuario\Documents\Studies\BootcampGFT\dotnet_csharp\02-exemplos\bin\Debug\net5.0\ref\exemplos02.dll
+C:\Users\Usuario\Documents\Studies\BootcampGFT\dotnet_csharp\02-exemplos\bin\Debug\net5.0\exemplos02.pdb
+C:\Users\Usuario\Documents\Studies\BootcampGFT\dotnet_csharp\02-exemplos\obj\Debug\net5.0\exemplos02.dll
+C:\Users\Usuario\Documents\Studies\BootcampGFT\dotnet_csharp\02-exemplos\obj\Debug\net5.0\ref\exemplos02.dll
+C:\Users\Usuario\Documents\Studies\BootcampGFT\dotnet_csharp\02-exemplos\obj\Debug\net5.0\exemplos02.pdb
+C:\Users\Usuario\Documents\Studies\BootcampGFT\dotnet_csharp\02-exemplos\obj\Debug\net5.0\exemplos02.genruntimeconfig.cache
