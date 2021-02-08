@@ -1,0 +1,16 @@
+C:\Users\Usuario\Documents\Studies\BootcampGFT\dotnet_csharp\desafios\bin\Debug\net5.0\desafios.exe
+C:\Users\Usuario\Documents\Studies\BootcampGFT\dotnet_csharp\desafios\bin\Debug\net5.0\desafios.deps.json
+C:\Users\Usuario\Documents\Studies\BootcampGFT\dotnet_csharp\desafios\bin\Debug\net5.0\desafios.runtimeconfig.json
+C:\Users\Usuario\Documents\Studies\BootcampGFT\dotnet_csharp\desafios\bin\Debug\net5.0\desafios.runtimeconfig.dev.json
+C:\Users\Usuario\Documents\Studies\BootcampGFT\dotnet_csharp\desafios\bin\Debug\net5.0\desafios.dll
+C:\Users\Usuario\Documents\Studies\BootcampGFT\dotnet_csharp\desafios\bin\Debug\net5.0\ref\desafios.dll
+C:\Users\Usuario\Documents\Studies\BootcampGFT\dotnet_csharp\desafios\bin\Debug\net5.0\desafios.pdb
+C:\Users\Usuario\Documents\Studies\BootcampGFT\dotnet_csharp\desafios\obj\Debug\net5.0\desafios.csprojAssemblyReference.cache
+C:\Users\Usuario\Documents\Studies\BootcampGFT\dotnet_csharp\desafios\obj\Debug\net5.0\desafios.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Usuario\Documents\Studies\BootcampGFT\dotnet_csharp\desafios\obj\Debug\net5.0\desafios.AssemblyInfoInputs.cache
+C:\Users\Usuario\Documents\Studies\BootcampGFT\dotnet_csharp\desafios\obj\Debug\net5.0\desafios.AssemblyInfo.cs
+C:\Users\Usuario\Documents\Studies\BootcampGFT\dotnet_csharp\desafios\obj\Debug\net5.0\desafios.csproj.CoreCompileInputs.cache
+C:\Users\Usuario\Documents\Studies\BootcampGFT\dotnet_csharp\desafios\obj\Debug\net5.0\desafios.dll
+C:\Users\Usuario\Documents\Studies\BootcampGFT\dotnet_csharp\desafios\obj\Debug\net5.0\ref\desafios.dll
+C:\Users\Usuario\Documents\Studies\BootcampGFT\dotnet_csharp\desafios\obj\Debug\net5.0\desafios.pdb
+C:\Users\Usuario\Documents\Studies\BootcampGFT\dotnet_csharp\desafios\obj\Debug\net5.0\desafios.genruntimeconfig.cache
