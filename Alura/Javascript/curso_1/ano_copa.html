@@ -1,0 +1,22 @@
+<meta charset="UTF-8">
+
+<script>
+
+    function pulaLinha() {
+        document.write("<br/>");
+    }
+
+    function mostra(frase) {
+        document.write(frase);
+        pulaLinha();
+    }
+
+    ano_copa = 1930;
+
+    while(ano_copa <= 2016) {
+        mostra("Teve copa em " + ano_copa);
+        pulaLinha();
+        ano_copa += 4;
+    }
+    
+</script>

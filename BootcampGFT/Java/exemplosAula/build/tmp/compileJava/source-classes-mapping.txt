@@ -50,9 +50,9 @@ dateFormat/Exemplo2.java
  dateFormat.Exemplo2
 array/Array.java
  array.Array
-desafios/Desafio3.java
- desafios.Desafio3
 desafios/Desafio2.java
  desafios.Desafio2
+desafios/Desafio3.java
+ desafios.Desafio3
 desafios/Desafio1.java
  desafios.Desafio1

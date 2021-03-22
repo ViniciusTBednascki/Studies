@@ -1,0 +1,81 @@
+body{
+    background-image: url('imgs/background.jpg');
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    color: #FFFFFF;
+    font-family: 'Montserrat', sans-serif;
+}
+
+header{
+    background-color: rgba(0, 0, 0, 0.445);
+    padding: 20px 0;
+}
+
+.caixaHeader{
+    position: relative;
+    width: 940px;
+    margin: 0 auto;
+}
+
+nav{
+    position: absolute;
+    top: 110px;
+    right: 0;
+}
+
+nav li{
+    display: inline;
+    margin: 0 0 0 15px;
+}
+
+nav a{
+    text-transform: uppercase;
+    color: #FFFFFF;
+    font-weight: bold;
+    font-size: 22px;
+    text-decoration: none;
+}
+
+nav a:hover{
+    color: #41000d;
+}
+
+.caixa{
+    width: 940px;
+    margin: 0 auto;
+}
+
+footer{
+    text-align: center;
+    background: url('imgs/bg.jpg');
+    padding: 40px 0;
+}
+
+.copyright{
+    color: #FFFFFF;
+    font-size: 13px;
+    margin-top: 20px;
+}
+
+@media screen and (max-width: 980px){
+    .caixaHeader, .caixa, .conteudoBeneficios, .video, .produtos{
+        width: auto;
+    }
+
+    h1, nav ul{
+        text-align: center;
+    }
+
+    nav{
+        position: static;
+    }
+
+    .produtos li{
+        width: auto;
+        max-width: 320px;
+        margin: auto;
+        display: block;
+        margin-bottom: 2em;
+    }
+}    

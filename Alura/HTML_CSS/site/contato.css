@@ -1,0 +1,59 @@
+main{     
+    background: url('imgs/contato.jpg');
+    background-size: 300px 350px;
+}
+
+form{
+    background-color: #000000BB;
+    padding: 40px 10px;
+}
+
+form label, form legend{
+    display: block;
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+.inputPadrao{
+    display: block;
+    margin-bottom: 20px;
+    padding: 5px 15px;
+    width: 50%;
+}
+
+.checkbox{
+    margin: 20px 0;
+}
+
+.enviar{
+    width: 20%;
+    min-width: 125px;
+    padding: 10px 0;
+    background-color: #002f55;
+    border: none;
+    font-weight: bold;
+    color: white;
+    border-radius: 5%;
+    transition: 0.1s all;
+}
+
+.enviar:hover{
+    background-color: #41000d;
+    cursor: pointer;
+    transform: scale(1.1);
+}
+
+table{
+    margin: 40px 0 20px;
+}
+
+thead{
+    background-color: #002f55;
+    color: white;
+    font-weight: bold;
+}
+
+td, th{
+    border: 1px solid #FFFFFF;
+    padding: 8px 16px;
+}

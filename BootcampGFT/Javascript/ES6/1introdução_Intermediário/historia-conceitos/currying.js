@@ -10,9 +10,10 @@
 
   const soma = a => b => a + b;
   const soma2 = soma(2);
+  const soma3 = soma(3);
 
-  soma2(2);
-  soma2(3);
-  soma2(4);
-  soma2(5);
+  console.log(soma3(2));
+  console.log(soma3(3));
+  console.log(soma3(4));
+  console.log(soma3(5));
 })();

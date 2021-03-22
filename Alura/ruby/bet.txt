@@ -1,0 +1,1 @@
+def bet(one,three,five,ten,twenty)

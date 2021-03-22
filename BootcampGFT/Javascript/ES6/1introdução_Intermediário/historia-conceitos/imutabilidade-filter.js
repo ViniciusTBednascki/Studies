@@ -19,4 +19,7 @@
   }
 
   const approvedStudents = getApprovedStudents(students);
+
+  console.log(approvedStudents);
 })();
+

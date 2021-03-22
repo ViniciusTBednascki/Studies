@@ -1,0 +1,16 @@
+C:\Users\Usuario\Documents\Studies\CodeWars\csharp\bin\Debug\net5.0\csharp.exe
+C:\Users\Usuario\Documents\Studies\CodeWars\csharp\bin\Debug\net5.0\csharp.deps.json
+C:\Users\Usuario\Documents\Studies\CodeWars\csharp\bin\Debug\net5.0\csharp.runtimeconfig.json
+C:\Users\Usuario\Documents\Studies\CodeWars\csharp\bin\Debug\net5.0\csharp.runtimeconfig.dev.json
+C:\Users\Usuario\Documents\Studies\CodeWars\csharp\bin\Debug\net5.0\csharp.dll
+C:\Users\Usuario\Documents\Studies\CodeWars\csharp\bin\Debug\net5.0\ref\csharp.dll
+C:\Users\Usuario\Documents\Studies\CodeWars\csharp\bin\Debug\net5.0\csharp.pdb
+C:\Users\Usuario\Documents\Studies\CodeWars\csharp\obj\Debug\net5.0\csharp.csprojAssemblyReference.cache
+C:\Users\Usuario\Documents\Studies\CodeWars\csharp\obj\Debug\net5.0\csharp.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Usuario\Documents\Studies\CodeWars\csharp\obj\Debug\net5.0\csharp.AssemblyInfoInputs.cache
+C:\Users\Usuario\Documents\Studies\CodeWars\csharp\obj\Debug\net5.0\csharp.AssemblyInfo.cs
+C:\Users\Usuario\Documents\Studies\CodeWars\csharp\obj\Debug\net5.0\csharp.csproj.CoreCompileInputs.cache
+C:\Users\Usuario\Documents\Studies\CodeWars\csharp\obj\Debug\net5.0\csharp.dll
+C:\Users\Usuario\Documents\Studies\CodeWars\csharp\obj\Debug\net5.0\ref\csharp.dll
+C:\Users\Usuario\Documents\Studies\CodeWars\csharp\obj\Debug\net5.0\csharp.pdb
+C:\Users\Usuario\Documents\Studies\CodeWars\csharp\obj\Debug\net5.0\csharp.genruntimeconfig.cache
