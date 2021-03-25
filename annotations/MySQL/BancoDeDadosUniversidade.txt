@@ -1,4 +1,4 @@
-CREATE SCHEMA Trabalho;
+CREATE DATABASE Trabalho;
 USE Trabalho;
 
 CREATE TABLE Pessoa
@@ -99,15 +99,6 @@ CREATE TABLE Disciplina_Executada
 	FOREIGN KEY (ID_Aluno) REFERENCES Aluno(ID_Aluno),
 	FOREIGN KEY (ID_Curso_Disciplina) REFERENCES Curso_Disciplina(ID_Curso_Disciplina)
 );
-
-
-
-
-
-
-
-
-
 
 CREATE TABLE Cadastro_Aluno_Professor_Coordenador
 (

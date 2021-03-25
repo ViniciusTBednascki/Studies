@@ -1,0 +1,58 @@
+SQL é um banco do tipo relacional
+MySQL e SQLServer são exemplos de linguagens que mexem com esses bancos de dados relacionais
+
+NoSQL é um banco de dados não relacionais
+MongoDB é uma das linguagens que mexem com esses bancos
+
+comandos SQL:
+DDL (Data Definition Language): São os comandos que alteram a estrutura da tabela como CREATE, ALTER, DROP e TRUNCATE.
+As alterações são permanentemente salvas (Auto-commited).
+
+DML (Data Manipulation Language): Comandos que modificam os dados como INSERT, UPDATE e DELETE.
+As alterações não são permanentemente salvas (not Auto-commited).
+
+DCL (Data control Language): Comandos utilizados para garantir ou retirar autoridades dos usuarios como GRANT e REVOKE.
+
+TCL (Transaction control language): Comandos utilizados juntos dos comandos DML para decidir se os dados serão salvos permanentemente no banco de dados ou não. COMMIT, ROLLBACK e SAVEPOINT
+
+DQL (Data Query Language): Usado para buscar os dados da base de dados, FETCH.
+
+MySQL é o preferido para aplicações na internet
+
+O banco de dados cria internamente índices para facilitar e acelerar a busca de informações dentro do banco de dados.
+
+O principal componente de um banco de dados são as tabelas que o compõe, essas tabelas são compostas pelos campos de número e tipo de dado definido e os registros que podem ser ilimitados.
+
+As tabelas podem ser agrupadas em esquemas.
+
+Visão(View) é uma representação, que pode ser personalizada, dos dados das tabelas dentro do banco de dados.
+utilizada demonstrar uma consulta de uma ou varias tabelas e filtrar quais dados serão vizualizados
+
+procedures e funções
+
+triggers
+
+Datatypes SQL:
+INT (TINYINT, SMALLINT, MEDIUMINT, INT, BIGINT): números inteiros dentro da faixa de tamanhos definida.
+
+Ponto flutuante(FLOAT, DOUBLE): Grava o número com a precisão de número de casas definido, DOUBLE tem o dobro da precisão do FLOAT.
+
+Fixos( DECIMAL, NUMERIC): O número de digitos e casas decimais é definido e o número só sera gravado dentro dessa faixa.
+
+BIT: Define quantos bits serão gravados, geralmente usado para true ou false.
+
+Atributos dos campos númericos:
+SIGNED ou UNSIGNED: indica se o número possui sinal ou não
+ZEROFILL: Se o número possuir menos digitos que o máximo o restante será preenchido com zeros.
+AUTO_INCREMENT: O número será automaticamente acrescentado com o valor definido
+
+Data e hora:
+DATE: 1000-01-01 até 9999-12-31
+DATETIME: 1000-01-01 00:00:00 até 9999-12-31 23:59:59
+TIMESTAMP: 1970-01-01 00:00:01 UTC até 2038-01-19 UTC
+TIME: -838:59:59 até 838:59:59
+
+STRINGS:
+CHAR e VARCHAR: Guarda número definido de caracteres, CHAR preenche com espaços vazios se o número de caracteres for menor que o máximo.
+
+ENUM - Define quais valores podem ser gravados.
