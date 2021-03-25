@@ -1,3 +1,5 @@
+USE FACULDADE;
+
 INSERT INTO Cadastro_Aluno_Professor_Coordenador
 VALUES
 	('Yuri Roriz','283.999.559-06','1998-01-07',1,0,0),

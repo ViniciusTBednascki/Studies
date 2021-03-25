@@ -1,3 +1,5 @@
+USE FACULDADE;
+
 SELECT  Curso.Nome AS Curso, CONCAT(Pessoa.Primeiro_nome," ",Pessoa.Ultimo_nome) AS Nome, Matricula_Curso.ID_Aluno
     FROM Curso
     JOIN Matricula_Curso
