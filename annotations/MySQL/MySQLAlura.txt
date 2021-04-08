@@ -1,3 +1,5 @@
+ETL - pesquisar.
+
 SQL é um banco do tipo relacional
 MySQL e SQLServer são exemplos de linguagens que mexem com esses bancos de dados relacionais
 
@@ -56,3 +58,15 @@ STRINGS:
 CHAR e VARCHAR: Guarda número definido de caracteres, CHAR preenche com espaços vazios se o número de caracteres for menor que o máximo.
 
 ENUM - Define quais valores podem ser gravados.
+
+Diagrama de entidades e relacionamentos
+Estabelecer a cardinalidades das entidades
+
+Relacionamentos das entidades(1:1, 1:N, N:N)
+
+Atributos das entidades(Campos de cada tabela)
+
+Pode-se usar ferramentas CASE(Computer-Aided Software Engineering) para a construção de banco de dados
+Exemplos: Star UML, Astah, ERWin
+
+MySQL database engines
