@@ -1,0 +1,5 @@
+Numa arvore binaria os valores serão salvos em 'nós' e o valor a esquerda desse nó é menor que ele e o valor a direita desse nó é maior que ele.
+
+B-TREE - é chamado de 'balance tree' porque o indice sempre tenta balancear os lados das arvores.Os valores são balanceados.
+
+HASH - é um algoritimo que mapeia dados de tamanhos variáveis em um tamanho fixo. Utilizado tambem em criptografia para criar valores unicos.

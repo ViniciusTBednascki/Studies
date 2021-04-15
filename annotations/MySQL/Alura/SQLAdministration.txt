@@ -1,0 +1,64 @@
+SERVIDOR
+As conexãos aos bancos de dados são salvas por padrão no endereço : C:\Users\Username\AppData\Roaming\MySQL\Workbench\conections.xml
+
+O arquivo conections.xml pode ser exportados para outras máquinas em uma mesma rede para que essas consiguam acessar o servidor sem precisar fazer a configuração de conexão uma por uma.
+
+O servidor pode ser parado pela aba de servicos do windows ou pelo CMD, o servidor padrão tem a denominação de MySQL80. A necessidade de parada do servidor pode ser para a manutenção desse ou para que ele seja reiniciado com novas variáveis de iniciação.
+
+TUNING MYSQL
+Existem 4 maneiras para fazer o Tuning do MySQL:
+- Esquemas e índices, mysqld Tuning
+- Tuning do sistema operacional
+- Ênfase ao Tuning usando mysqld
+- Tuning de hardware
+
+Hardware:
+  -Preferencia de sistemas operacionais de 64bits
+  -Configurar a quantidade de RAM disponível para o banco de dados
+  -Ver o tipo de leitura de disco (Preferencia: SSDs -> HD SAS -> HD SATA)
+  -Usar controladora de disco RAID (Combina e controla diferentes hds    como se fosse um só), existem diferentes tipos como RAID 0,1,5 e 10 que     são escolhidos dependendo se o bjetivo é velocidade ou segurança.
+
+Variáveis de ambiente:
+SHOW STATUS mostra a situação atual das variáveis de ambiente
+
+existem dois tipos: GLOBAL(vale para todo o banco de dados) e SESSION    (vale apenas para a conexão)
+
+my.ini(windows) ou my.cnf(linux) é o arquivo de inicialização das variáveis
+
+possui duas diretivas [mysqld] e [client]
+
+a documentação pode ser encontrada em: https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html
+
+Alterações feitas nas variáveis pelo workbench ou pelo CMD seram redefinidas ao reiniciar o servidor, alterações definitivas devem ser feitas no arquivo de inicialização das váriaveis.
+
+MECANISMOS DE ARMAZENAMENTO
+Os mais usados são o MyISAM, InnoDB e MEMORY.
+
+MyISAM: Não é transacional e não tem mecanismos de bloqueio de registros, assim é rápido para leitura porém podem ocerrer problemas com muitas gravações. Indicado para Warehouses. Os dados são compactados. Bloqueio a níveld e tabela.
+
+InnoDB: É o mecânismo de armazenamento transacional mais utilizado. Suporta apenas indices BTREE. Pode-se fazer um backup online sem a necessidade de tirar o banco do ar. Bloqueio a nível de linha.
+
+MEMORY: Cria tabela apenas na tabela, sem suporte a chaves estrangeiras. Mutio rápida para ler e escrever dados por ser inteiramente na memória. Bloqueio a nível de tabela.
+
+A alteração do diretório dos bancos de dados do MySQL pode ser feita mudando-se o valor da variável de ambiente 'datadir'.
+
+BACKUP lógico - script com as intruções para recriar o banco de dados.
+BACKUP físico - Dados binarios que representam o banco de dados.
+
+mysqldump - cria um backup lógico.
+
+Para criar um backup físico é necessário trancar o banco de dados por garantia, copiar o arquivo de iniciação e a pasta data e então destrancar o banco de dados.
+
+Para consultar o plano de execução de uma consulta pode se utilizar o comando EXPLAIN dentro do CMD e os complementos \G para ordenar o resultado em linhas e FORMAT=JSON para retornar um arquivo em formato JSON com mais informações sobre a consulta.
+
+INDICES
+MyISAM - Utiliza como referencia a posição em que os valores foram inseridos para criar uma estrutura a parte para os indices PK e não PK usados para realizar a consulta. Implementa indices HASH e B-TREE.
+
+InnoDB - A tabela original já é ordenada pelo PK e os indices não PK serão ordenados pelo PK em estruturas a parte. Implementa somente B-TREE.
+
+B-TREE e HASH são diferentes algoritimos de busca em listas ordenadas.
+
+Utilizar indices em outras colunas que geralmente são utilizadas para as consultas melhora o tempo da execução da consulta.
+ALTER TABLE `table_name` ADD INDEX(`column_name`)
+
+O plano de execução das consultas pode ser conferido pelo workbench tambem. Ao selecionar a ultima opção resultados da consulta o workbench mostra um diagrama da execução da consulta e seus custos.
