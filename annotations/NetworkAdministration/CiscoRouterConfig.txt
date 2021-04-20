@@ -1,0 +1,35 @@
+utilizar um cabo console utilizando a conexão RS232 no computador e conectado a porta console do roteador.
+
+No terminal, inicia-se com um acesso de usuario sem a possibilidade de realizar configurações no roteador, como forma de prevenção.
+Para habilitar a configuraçõ é preciso digitar no console:
+(Para conseguir a lista de comandos disponiveis basta digitar ? no terminal)
+Router>enable
+Router#configure terminal
+
+No privilégio de configuração:
+Para habilitar uma porta:
+Router(config)#interface [nomedainterface](ex: gigabitEthernet 0/0)
+Router(config-if)#no shutdown
+Router(config-if)#exit  (para voltar para a configuração do roteador)
+
+Para configurar o ip da porta:
+Router(config-if)#ip address [IP](ex: 192.168.3.5) [máscara](ex: 255.255.255.0)
+Router(config-if)#exit
+
+Mostrar o IP das portas:
+Router#show ip interface brief
+
+Para que o computador possa comunicar-se com máquinas fora da rede é preciso inserir no 'Default Gateway' o ip da porta do roteador.
+
+Para configurar o DHCP:
+Router(config)#ip dhcp pool [nome do pool de IPs](ex: HOME)
+Router(dhcp-config)#network [endereço da rede](ex: 192.168.0.0) [mascára](ex: 255.255.255.0)
+Router(dhcp-config)#default-router [port IP](ex: 192.168.0.1)
+Router(dhcp-config)#exit
+Router(config)#interface [nomedainterface](ex: gigabitEthernet 0/0)
+Router(config-if)#ip address [IP](ex: 192.168.0.1, mesmo definido no default-router) 
+[mascára](ex: 255.255.255.0)
+
+Para configurar o servidor DNS no DHCP:
+Router(config)#ip dhcp pool HOME 
+Router(dhcp-config)#dns-server [endereço do servidor DNS](ex: 8.1.0.0)

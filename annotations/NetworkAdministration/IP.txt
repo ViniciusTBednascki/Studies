@@ -1,0 +1,40 @@
+IPv4 é forma como o computador gera o número pelo qual será identificado, o limite teórico de diferentes números seria de 4.294.967.296. Assim foi necessário a criação de um novo padrão o IPv6.
+
+No IPv4, cada protocolo é composto por quatro grupos de dois dígitos hexadecimais, cada grupo variando entre entre 0 e 255 e totalizando 32 bits.
+
+O IPv6, por sua vez, possui oito grupos de números, cada um com quatro dígitos hexadecimais, totalizando 128 bits. Isso garante que o número aproximado de endereços seja de 3,4 x 10^38
+
+O IPv6 possui recursos de segurança avançados já integrados, como é o caso do IPSec. O mesmo sistema pode ser usado no IPv4, mas precisa ser ativado diretamente no provedor de Internet.
+
+Classes IP:
+
+A:
+	primerio octeto: 1 - 127
+	Máscara: 255.0.0.0
+	Faixa de endereço privado: 10.xx.xx.xx
+B:
+	primeiro octeto: 128 - 191
+	Máscara: 255.255.0.0
+	Faixa de endereço privado: 172.16.xx.xx - 172.31.xx.xx
+C:
+	primeiro octeto: 192 - 223
+	Máscara:255.255.255.0
+	Faixa de endereço privado: 192.168.xx.xx
+D:
+	Primeiro octeto: 224 - 239
+	Classe reservada, não enderaçada em máquinas.
+E:
+	Primeiro octeto: 240 - 255
+	Classe reservada, não enderaçada em máquinas.
+
+Endereços reservados classe A:
+xx.0.0.0 - Endereço de rede
+xx.255.255.255 - Endereço de broadcast
+
+Endereços reservados classe B:
+xx.xx.0.0 - Endereço de rede
+xx.xx.255.255 - Endereço de broadcast
+
+Endereços reservados classe C:
+xx.xx.xx.0 - Endereço de rede
+xx.xx.xx.255 - Endereço de broadcast

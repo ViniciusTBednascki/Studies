@@ -1,0 +1,40 @@
+https://pt.wikipedia.org/wiki/Modelo_OSI
+
+Modelo de referência da ISO, tem como principal objetivo ser um modelo padrão para protocolos de comunicação entre diversos tipos de sistema, garantindo a comunicação end-to-end. 
+
+Trata-se de uma arquitetura modelo que divide as redes de computadores em 7 camadas para obter camadas de abstração. Cada protocolo realiza a inserção de uma funcionalidade assinalada a uma camada específica.
+
+O Modelo OSI é composto por 7 camadas, sendo que cada uma delas realizam determinadas funções. As camadas são: Aplicação (Application), Apresentação (Presentation), Sessão (Session), Transporte (Transport), Rede (Network), Dados (Data Link) e Física (Physical).
+
+HTTPS (Hyper Text Transfer Protocol Secure - protocolo de transferência de hipertexto seguro) é uma implementação do protocolo HTTP sobre uma camada adicional de segurança que utiliza o protocolo SSL/TLS. Essa camada adicional permite que os dados sejam transmitidos por meio de uma conexão criptografada e que se verifique a autenticidade do servidor e do cliente por meio de certificados digitais. A porta TCP usada por norma para o protocolo HTTPS é a 443.
+O protocolo HTTPS é utilizado, em regra, quando se deseja evitar que a informação transmitida entre o cliente e o servidor seja visualizada por terceiros, como por exemplo no caso de compras online. A existência na barra de endereços de um cadeado (que pode ficar do lado esquerdo ou direito, dependendo do navegador utilizado) demonstra a certificação de página segura (SSL/TLS). A existência desse certificado indica o uso do protocolo HTTPS e que a comunicação entre o browser e o servidor se dará de forma segura. Para verificar a identidade do servidor é necessário um duplo clique no cadeado para exibição do certificado.
+https://pt.wikipedia.org/wiki/Hyper_Text_Transfer_Protocol_Secure
+
+O Transport Layer Security (TLS), assim como o seu antecessor Secure Sockets Layer (SSL), é um protocolo de segurança projetado para fornecer segurança nas comunicações sobre uma rede de computadores. Várias versões do protocolo encontram amplo uso em aplicativos como navegação na web, email, mensagens instantâneas e voz sobre IP (VoIP). Os sites podem usar o TLS para proteger todas as comunicações entre seus servidores e navegadores web. O protocolo TLS visa principalmente fornecer privacidade e integridade de dados entre dois ou mais aplicativos de computador que se comunicam.
+https://pt.wikipedia.org/wiki/Transport_Layer_Security
+
+Protocolo de Controle de Transmissão (do inglês: Transmission Control Protocol, abreviado TCP) é um dos protocolos de comunicação, da camada de transporte da rede de computadores do Modelo OSI, que dão suporte a rede global Internet, verificando se os dados são enviados na sequência correta e sem erros via rede. É complementado pelo protocolo da Internet, normalmente chamado de, TCP/IP.
+Neste protocolo da camada de transporte (camada 4 OSI) se assentam a maioria das aplicações cibernéticas, como o SSH, FTP, HTTP — portanto, a World Wide Web, devido sua versatilidade e robustez. O Protocolo de controle de transmissão provê confiabilidade, entrega na sequência correta e verificação de erros dos pacotes de dados, entre os diferentes nós da rede, para a camada de aplicação.
+https://pt.wikipedia.org/wiki/Transmission_Control_Protocol
+
+O User Datagram Protocol (UDP) é um protocolo simples da camada de transporte. Ele é descrito na RFC 768 e permite que a aplicação envie um datagrama encapsulado num pacote IPv4 ou IPv6 a um destino, porém sem qualquer tipo de garantia que o pacote chegue corretamente (ou de qualquer modo).
+https://pt.wikipedia.org/wiki/User_Datagram_Protocol
+
+https://www.alura.com.br/artigos/quais-as-diferencas-entre-o-tcp-e-o-udp
+
+ICMP, sigla para o inglês Internet Control Message Protocol (em português, Protocolo de Mensagens de Controle da Internet), é um protocolo integrante do Protocolo IP, definido pelo RFC 792, é utilizado para comunicar informações da camada de rede, sendo o uso mais comum para fornecer relatórios de erros à fonte original. Qualquer computador que utilize IP precisa aceitar as mensagens ICMP e alterar o seu comportamento de acordo com o erro relatado. Os gateways devem estar programados para enviar mensagens ICMP quando receberem datagramas que provoquem algum erro.
+As mensagens ICMP geralmente são enviadas automaticamente em uma das seguintes situações:
+Um pacote IP não consegue chegar ao seu destino (i.e. Tempo de vida do pacote expirado)
+O Gateway não consegue retransmitir os pacotes na frequência adequada (i.e. Gateway congestionado)
+O Roteador ou Encaminhador indica uma rota melhor para a máquina a enviar pacotes.
+Ferramentas comumente usadas em Windows baseadas nesse protocolo são: Ping e Traceroute.
+https://pt.wikipedia.org/wiki/Internet_Control_Message_Protocol
+
+ARP - O Address Resolution Protocol é um protocolo de requisição e resposta que é executado encapsulado pelo protocolo da linha. A requisição (request) é realizada por via de Broadcast, solicitando o endereço físico (MAC) de uma determinada máquina através do seu endereço lógico (IP). Por sua vez, a resposta (reply) é fornecida de forma direta (Unicast) pela máquina com o endereço lógico requisitado, contendo então o endereço físico da mesma. No final da operação, ambos os intervenientes guardam os dados um do outro em cache de forma a otimizar a rede.
+https://pt.wikipedia.org/wiki/Address_Resolution_Protocol
+
+STP - Spanning Tree Protocol (referido com o acrónimo STP) é um protocolo para equipamentos de rede que permite resolver problemas de loop em redes comutadas cuja topologia introduza anéis nas ligações, auxiliando na melhor performance da rede.
+O protocolo STP possibilita a inclusão de ligações redundantes entre os computadores, provendo caminhos alternativos no caso de falha de uma dessas ligações. Nesse contexto, ele serve para evitar a formação de loops entre os comutadores e permitir a ativação e desativação automática dos caminhos alternativos.
+Para isso, o algoritmo de Spanning Tree determina qual é o caminho mais eficiente (de menor custo) entre cada segmento separado por bridges ou switches. Caso ocorra um problema nesse caminho, o algoritmo irá recalcular, entre os existentes, o novo caminho mais eficiente, habilitando-o automaticamente. O nome deriva do algoritmo spanning tree em teoria dos grafos e o protocolo é baseado em um algoritmo criado por Radia Perlman.
+https://pt.wikipedia.org/wiki/Spanning_Tree_Protocol
+

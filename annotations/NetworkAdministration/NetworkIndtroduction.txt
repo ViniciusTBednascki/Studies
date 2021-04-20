@@ -1,0 +1,84 @@
+“Uma rede de computadores é formada por um conjunto de máquinas eletrônicas com processadores capazes de trocar informações e partilhar recursos”.
+
+IP - é o endereçamento que cada máquina recebe para que possa se comunicar com outras utilizando a internet.
+
+ping - Dentro do ping temos o protocolo ICMP responsável por fazer a requisição até uma máquina remota (Echo Request) e esperar a resposta (Echo Reply).
+
+ipconfig - é usado para ver as configurações de IP de minha máquina
+nslookup -  é usado para obter informações mais avançadas
+
+TTL - time to live, é o tempo de vida da informação enviada que diminui a cada passagem por diferentes máquinas (hops) evitando que a informação possa ficar presa em um loop e cause um travamento do tráfego.
+
+traceroute(bash)/tracert(cmd) - é usado para verificar a rota que a informação percorreu até chegar o destino.
+
+Os servidores DNS (Domain Name System, ou sistema de nomes de domínios) são os responsáveis por localizar e traduzir para números IP os endereços dos sites que digitamos nos navegadores.
+
+DHCP, um sistema presente em roteadores com e sem fio. O recurso cria uma espécie de Internet "interna", com endereços IP que só funcionam dentro da rede local. Assim, todos os dispositivos conectados a ela – computadores, celulares, aparelhos IoT, entre outros – compartilham o mesmo IPv4, mas têm IPs internos diferentes.
+
+Os nomes para os endereços IP podem ser configurados no arquivo C:\Windows\System32\drivers\etc\hosts
+
+nslookup - informa os endereços IP para o nome de domínio informado, esse reposta pode ser não autoritativa, se for obtida do cache salvo na própria máquina, ou autoritativa, quando recebida direto da máquina com esse endereço IP.
+
+-O Hub é um equipamento utilizado para interconectar diversos dispositivos finais.
+-NAT é um método de tradução de endereços privados e públicos.
+-Servidor é uma máquina centralizada que oferece serviços a um cliente (ex: computador)
+-Máscara de rede é usado para determinar se dois equipamentos estão na mesma rede
+
+8P8C - é um conector modular usado em terminações de telecomunicação e popularmente denominado RJ45. Os conectores 8P8C são usados normalmente em cabo par trançado.
+A conexão do conector 8P8C ao cabo de rede é chamado de crimpar.
+
+Dentro do cabo de rede existem 8 fios de diferentes cores, assim a placa de rede utilizara os fios em certas posições(como 1 e 2 para enviar dados - 3 e 6 para receber dados nos computadores e o inversos nos hubs).
+Quando os fios são conectados nas mesmas posições dos dois lados é chamado de cabo direto.
+Para evitar os problemas de comunicação entre máquinas com um mesmo tipo de placa de rede, existem dois padrões T568A/T568B para que seja possível essa comunicação. Essa conexão é chamada de cabo cruzado(crossver).
+Ao conectar uma placa de rede é preciso saber qual cabo usar (cabo direto ou cruzado).
+Algumas placas de rede mais modernas possuem o padrão auto-MDIX, que consegue detectar problemas na conexão do cabo e mudar a polaridade para que funcione.
+
+A limitação do hub é que esse não armazena o endereço de IP das máquinas conectadas, então ao receber dados ele irá retransmitir para todas as outras demais máquinas conectadas (broadcast), o que pode causar uma lentidão na rede e pode ser uma vunerabilidade de segurança.
+
+Wireshark - análisa o tráfego de daos e organiza-os por protocolo. Pode ser usado por um usuário malicioso em uma rede vulnerável para descobrir informações que estão sendo transmitidas.
+
+Protocolos e OSI(Open System Interconnection) - as anotações estão no outro arquivo ./OpenSystemInterconnection.txt
+
+Endereço MAC - Um endereço de controle de acesso à mídia (endereço MAC) de um dispositivo é um identificador único atribuído a uma interface de rede (ou Network Interface Controller - NIC). Para comunicações dentro de um segmento de rede, é usado como endereço de rede para a maioria das tecnologias de rede IEEE 802, incluindo Ethernet, Wi-Fi e Bluetooth. No modelo Open Systems Interconnection (OSI), os endereços MAC são usados ​​na subcamada de protocolo do controle de acesso ao meio da camada de enlace de dados. Como normalmente representado, os endereços MAC são reconhecíveis como seis grupos de dois dígitos hexadecimais, separados por hífens, dois pontos ou nenhum separador (consulte as Convenções de notação abaixo).
+https://pt.wikipedia.org/wiki/Endere%C3%A7o_MAC
+
+Switch - Grava o endereço MAC conectado a porta assim não enviando informações para todas as máquinas conectadas na rede.
+Um problema de segurança no switch seria a lotação da memória de endereços MAC, que pode ser feito enviando vários endereços falsos, comprometendo o funcionamento do switch que passa a se comportar como um HUB. Uma contravenção a essa prática é a limitação de endereços MAC que podem ser salvos por porta.
+
+Máscara de sub-rede - Separa o IP em duas partes: host e network, para que assim as máquinas em uma mesma rede possam comunicar-se entre si e com outras redes evitando excesso de tráfego de informações.
+Ao observar a máscara de rede ele irá dividir os valores 1111(bits) ou 255(decimal) em rede e os valores 0 em host.
+ex:
+	IP:            192 . 168 .     3 .  1
+	Máscara: 255 . 255 . 255 .  0
+	                |         rede        |host|
+
+Assim, no exemplo, para os computadores estarem em uma mesma rede que o IP apresentado, seus endereços devem comecar por 192.168.3._
+Computadores que estão em redes diferentes, ex:191.168.3.1, não irão conseguir comunicar-se com aquele endereço de IP.
+
+Roteador: Tem como função conectar-se a outras redes encaminhado os pacotes de dados e permitir que as máquinas conectadas se comuniquem com máquinas fora da rede.
+
+Cabo direto - Switch to router,Switch to PC or server,Hub to PC or server
+Cabo cruzado - Switch to hub, Router Ethernet port to PC NIC, alike devices.
+
+Padrão Fast Ethernet - possibilita apenas uma taxa de transferencia de até 100Mb/s mas é mais barato.
+Padrão Gigabit Ethernet - possibilita uma taxa de transferencia de atá 1Gb/s porém é mais cara.
+
+Putty - é um emulador de terminal muito utilizado para acesso remota à outras máquinas, assim pode ser utilizado para configurar equipamentos como roteadores.
+
+Para configurar o roteador é necessário conectar um computador à entrada de console do roteador, usando um cabo console que tem uma conexão RS232 no caso dos equipamentos da ciso, e utilizar um programa emulador de terminal como o Putty por exemplo.
+
+O exemplo de configuração do roteador da Cisco está no arquivo ./CiscoRouterConfig.txt
+
+Para que o computador possa comunicar-se com máquinas fora da rede é preciso inserir no 'Default Gateway' o ip da porta do roteador.
+
+Para configurar o roteador doméstico é só conseguir o IP do default gateway através do ipconfig na linha de comandoe copiar esse endereço para a barra de navegação do browser.
+
+O endereço IP privado que temos em nossas máquinas é convertido para IP públicos que nosso provedor de serviços nos fornece, através do NAT(Network address translation).
+https://pt.wikipedia.org/wiki/Network_address_translation
+
+Uma eplicação mais detalhada dos endereços IP está no arquivo ./IP.txt
+
+Quando um endereço IP é atribuído a uma máquina (cliente), dizemos que a configuração foi dinamicamente alocado. Os servidores DHCP normalmente possuem o que chamamos de “lease time”, ou seja possui um tempo de alocação de um endereço IP a uma máquina, quando esse tempo é expirado é preciso ocorrer uma renovação de endereço IP. Por isso ele é dinamicamente alocado 
+
+
+
