@@ -1,0 +1,16 @@
+Uma rede local virtual, normalmente denominada de VLAN (Virtual Local Area Network), é uma rede logicamente independente. Várias VLANs podem coexistir em um mesmo comutador (switch), de forma a dividir uma rede local (física) em mais de uma rede (virtual), criando domínios de broadcast separados. Uma VLAN também torna possível colocar em um mesmo domínio de broadcast, hosts com localizações físicas distintas e ligados a switches diferentes. Um outro propósito de uma rede virtual é restringir acesso a recursos de rede sem considerar a topologia da rede, porém este método é questionável e improvável.
+Redes virtuais operam na camada 2 do modelo OSI. No entanto, uma VLAN geralmente é configurada para mapear diretamente uma rede ou sub-rede IP, o que dá a impressão que a camada 3 está envolvida.
+Enlaces switch-a-switch e switch-a-roteador são chamados de troncos. Um roteador ou switch de camada 3 serve como o backbone entre o tráfego que passa através de VLANs diferentes.
+https://pt.wikipedia.org/wiki/Virtual_LAN
+https://www.dltec.com.br/blog/redes/o-que-e-vlan/
+
+As Vlans (Virtual Lans) são usadas para segmentação de redes e priorização de tráfego. Hoje em dia as redes corporativas trafegam diferentes tipos de dados em suas redes, como por exemplo, podemos ter tráfego de dados, vídeo e voz e acaba sendo necessário lidar com esses diferentes tipos de tráfego de uma maneira a priorizar um sobre o outro.
+https://www.cisco.com/c/en/us/td/docs/ios/12_2sb/feature/guide/vlntgqos.html
+
+Ao configurar uma vlan as portas de modo acesso estarão conectadas em dispositivos finais(ex: computadores e servidores), tendo acesso a apenas uma vlan e portas de modo trunk estarão conectando dispositivos de rede(ex: switchs e roteadores), tendo acesso a várias vlans.
+
+Para habilitar a comunicação entre diferentes vlans é necessário um roteador. Com o roteador também é possível usar diferentes DHCP pools para cada vlan.
+
+Quando for necessário a utilização do dhcp para diferentes pools em uma mesma interface será necessário a criação de sub-interfaces para que cada uma faça as funções distintas.
+
+Ao conectar o switch ao roteador é preciso configurar essa porta de conexão para o modo trunk se for necessário que o roteador trabalhe com mais de uma vlan, como DHCP pools para diferentes vlans em uma mesma interface.

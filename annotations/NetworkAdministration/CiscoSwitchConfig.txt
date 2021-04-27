@@ -1,0 +1,35 @@
+Para configurar uma vlan:
+Switch>enable
+Switch#vlan show brief (Mostra as vlans que existem e os status delas)
+
+	        -- primeiro é necessário criar uma nova vlan --
+
+Switch#configure terminal
+Switch(config)#vlan 10
+Switch(config-vlan)#name [nome da vlan](ex: VENDAS)
+Switch(config-vlan)#exit
+
+         	  -- então é necessário configurar as portas de acesso--
+	         (fazer isso para todas as portas dentro da vlan)
+
+Switch(config-if)#switchport mode access  (muda a porta para o modo de acesso, assim só podera acessar uma vlan)
+Switch(config-if)#switchport access vlan 10
+Switch(config-if)#exit
+
+Switch(config)#interface range [range de portas](ex: fastEthernet 0/1 - 2) (possibilita fazer uma mesma configuração para várias portas ao mesmo tempo)
+
+		-- configurar as portas trunk --
+
+Switch(config)#interface [nome da interface](ex: fastEthernet 0/3)
+Switch(config-if)#switchport mode trunk 
+Switch#show interfaces trunk (mostras informações sobre as portas em modo trunk)
+
+
+Switch#show running-config (mostra a configuração de todas as portas)
+
+Switch#show spanning-tree vlan [número da vlan](ex: 20) (mostra informações sobre o switch root e do próprio switch e informações sobres as portas)
+
+para configurar o switch como root da vlan:
+Switch(config)#spanning-tree vlan [número da vlan](ex: 10) priority [prioridade](ex: 0)
+(o STP configura o switch com menor número de prioridade como root)
+

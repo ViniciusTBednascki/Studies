@@ -38,3 +38,46 @@ xx.xx.255.255 - Endereço de broadcast
 Endereços reservados classe C:
 xx.xx.xx.0 - Endereço de rede
 xx.xx.xx.255 - Endereço de broadcast
+
+Como a classificação de endereços IP por classes A,B,C apresenta um problema que é a grande discrepância entre os números disponíveis para hosts. Por isso se for necessário pode-se utilizar uma máscara de rede diferente das utilizadas nas classes. Para descobrir qual será a máscara utilizada, transforma-se o número necessário de hosts para binário e então descobrir quantos bits serão necessários para representar todos os números e assim aloca essa mesma quantidade de bits como 0 na máscara e transforma de volta para decimal para definir a nova máscara:
+https://www.geeksforgeeks.org/ip-addressing-classless-addressing/
+
+Para descobrir o IP de rede das sub-redes classless é preciso saber o valor do primeiro bit da máscara e o ip de brodcast será um valor antes do ip de rede da próxima sub-rede.
+ex:
+IP rede: 172.16.0.0		IP brodcast: 172.16.255.255
+
+Máscara: 255.255.254.0 ou 11111111.11111111.11111110.00000000
+			              	           |________|
+			           	1    1    1    1    1    1    1    0
+			                128 64  32  16   8    4    2   1
+
+IP sub-rede 1: 172.16.0.0	IP brodcast sub-rede 1: 172.16.1.255
+IP sub-rede 2: 172.16.2.0	IP brodcast sub-rede 2: 172.16.3.255
+IP sub-rede 3: 172.16.4.0	IP brodcast sub-rede 3: 172.16.5.255
+IP sub-rede 4: 172.16.6.0	IP brodcast sub-rede 4: 172.16.7.255
+IP sub-rede N: 172.16.254.0	IP brodcast sub-rede N: 172.16.255.255
+
+IP rede: 172.16.2.0		IP brodcast: 172.16.3.255
+
+Máscara: 255.255.255.128 ou 11111111.11111111.11111111.10000000
+			              	          	          |________|
+			           	               1    0    0    0    0    0    0    0
+			                               128 64  32  16   8    4    2   1
+
+IP sub-rede 1: 172.16.2.0	IP brodcast sub-rede 1: 172.16.2.127
+IP sub-rede 2: 172.16.2.128	IP brodcast sub-rede 2: 172.16.2.255
+IP sub-rede 3: 172.16.3.0	IP brodcast sub-rede 3: 172.16.3.127
+IP sub-rede 4: 172.16.3.128	IP brodcast sub-rede 4: 172.16.3.255
+
+
+NO IPv6 o endereço é formado por 128bits (8 intervalos de 4 casas hexadecimais ou 16bits), o endereço será representado utilizando valores de base hexadecimal e a representação da máscara será no formato CIDR (ex: /24).
+O desenvolvimento do protocolo IPv6 foi necessário porque a quantidade de endereço IPv4 públicos chegaram a um fim. Dessa forma, uma das preocupações no desenvolvimento desse novo protocolo era com relação a quantidade de endereços disponíveis para evitar assim que um novo protocolo precisasse ser desenvolvido. O IPv6 é capaz de fornecer aproximadamente 3.4×10 ^ 38 endereços, o que faz com que o esgotamento de endereços IPv6 seja muito improvável mesmo pensando a longo prazo.
+
+Abreviações dos endereços IPv6:
+1 - utilizar :: para indicara uma sequencia de zeros(só pode ser usado uma vez no endereço)
+ex: 2001:0BAA:0000:0000:0000:24D2:12AB:98BC -> 2001:0BAA::24D2:12AB:98BC
+2 - omitir os zeros iniciais de cada intervalo
+ex: 2001:0BAA::24D2:12AB:98BC -> 2001:BAA::24D2:12AB:98BC
+
+A máscara do IPv6 será indicada no formato CIDR. ex: 2001:BAA::24D2:12AB:98BC/32.
+

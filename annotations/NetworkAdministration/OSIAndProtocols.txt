@@ -38,3 +38,13 @@ O protocolo STP possibilita a inclusão de ligações redundantes entre os compu
 Para isso, o algoritmo de Spanning Tree determina qual é o caminho mais eficiente (de menor custo) entre cada segmento separado por bridges ou switches. Caso ocorra um problema nesse caminho, o algoritmo irá recalcular, entre os existentes, o novo caminho mais eficiente, habilitando-o automaticamente. O nome deriva do algoritmo spanning tree em teoria dos grafos e o protocolo é baseado em um algoritmo criado por Radia Perlman.
 https://pt.wikipedia.org/wiki/Spanning_Tree_Protocol
 
+BPDU - Para viabilizar o cálculo do caminho de menor custo, é necessário que cada comutador tenha conhecimento de toda a topologia da rede. A disponibilidade dessas informações é assegurada pela troca de quadros especiais chamados BPDUs - Bridge l Data Units - entre os comutadores . Os BPDUs são frames enviados para troca de informações tais como o bridge ID e o custo de caminho de um nó para a raíz. A bridge o frame BPDU utilizando o endereço único MAC unicast da porta como endereço de origem, e o endereço de destino é o endereço MAC multicast da Spanning Tree. Existem três tipos de BPDUs:
+Configuration BPDU (CBPDU) - Cálculo da Spanning Tree.
+Topology Change Notification (TCN) BPDU - Usado para notificar mudanças na topologia da rede.
+Topology Change Notification Acknowledgment (TCA)
+
+The Routing Information Protocol (RIP) is one of the oldest distance-vector routing protocols which employs the hop count as a routing metric. RIP prevents routing loops by implementing a limit on the number of hops allowed in a path from source to destination. The largest number of hops allowed for RIP is 15, which limits the size of networks that RIP can support.
+RIP implements the split horizon, route poisoning and holddown mechanisms to prevent incorrect routing information from being propagated.
+In RIPv1 routers broadcast updates with their routing table every 30 seconds. In the early deployments, routing tables were small enough that the traffic was not significant. As networks grew in size, however, it became evident there could be a massive traffic burst every 30 seconds, even if the routers had been initialized at random times.
+In most networking environments, RIP is not the preferred choice for routing as its time to converge and scalability are poor compared to EIGRP, OSPF, or IS-IS. However, it is easy to configure, because RIP does not require any parameters, unlike other protocols. RIP uses the User Datagram Protocol (UDP) as its transport protocol, and is assigned the reserved port number 520.
+https://en.wikipedia.org/wiki/Routing_Information_Protocol

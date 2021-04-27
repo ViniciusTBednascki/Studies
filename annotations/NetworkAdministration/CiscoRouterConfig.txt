@@ -27,9 +27,78 @@ Router(dhcp-config)#network [endereço da rede](ex: 192.168.0.0) [mascára](ex: 
 Router(dhcp-config)#default-router [port IP](ex: 192.168.0.1)
 Router(dhcp-config)#exit
 Router(config)#interface [nomedainterface](ex: gigabitEthernet 0/0)
-Router(config-if)#ip address [IP](ex: 192.168.0.1, mesmo definido no default-router) 
+Router(config-if)#ip address [port IP](ex: 192.168.0.1, mesmo definido no default-router) 
 [mascára](ex: 255.255.255.0)
 
 Para configurar o servidor DNS no DHCP:
 Router(config)#ip dhcp pool HOME 
 Router(dhcp-config)#dns-server [endereço do servidor DNS](ex: 8.1.0.0)
+
+
+Para criar subinterfaces e alocar à vlan:
+Router(config)#interface [interface.númeroDaSubInterface](ex: gigabitEthernet 0/0.1)
+Router(config-subif)#encapsulation dot1Q 10 (informa em qual vlan a subinterface estrá trabalhando, dot1Q é o protocolo da vlan)
+Router(config-subif)#ip address [port IP](ex: 192.168.10.1, mesmo definido no default-router) [mascára](ex: 255.255.255.0)
+Router(config-subif)#exit
+
+Se ocorrer um erro Router#%DHCPD-4-PING_CONFLICT: DHCP address conflict com o endereço da porta, é porque o DHCP está tentando forncer ess ip a máquina e causando um conflito, para resolver isso é necessário excluir o ip do pool do DHCP:
+Router(config)#ip dhcp excluded-address [IP em conflito](ex: 192.168.20.1)
+
+Para configurar uma sub-rede será o mesmo processo de configuração da rede, porém a máscara será diferente das classes A,B,C. (ex: 255.255.254.000 ou 255.255.255.128) 
+
+Para configurar uma lista de controle de acesso extendida:
+Router(config)#ip access-list [tipo da lista](ex: extended) [nome da lista](ex: SERVIDOR-GERENTES)
+Router(config-ext-nacl)#permit [protocolo](ex: tcp) [IP de origem](ex: 172.16.0.2) [wildcard](ex:0.0.0.0) [IP de destino](ex: 172.16.3.2) wildcard](ex: 0.0.0.0) (wildcard, é o "inverso" da máscara, em que os octetos 0 indicam que aqueles valores não podem ser difirentes e os octetos 255 indicam que aquele valor tanto faz.)
+Router(config-ext-nacl)#deny [protocolo](ex: tcp) [IP de origem](ex:172.16.0.2) [wildcard](ex:0.0.0.255) [IP de destino](ex: 172.16.3.2) wildcard](ex: 0.0.0.0) (não permite o protoco TCP das outras máquinas na rede)
+Router(config-ext-nacl)#permit ip any any (permite as outra comunicações além das que foram restritas, sempre colocar por último)  
+Router(config)#ip dhcp excluded-address [IP estático escolhido na lista](ex: 172.16.0.2) (Como o IP escolhido na lista será estático é necessário exclui-lo do pool do DHCP)
+Router(config-subif)#ip access-group [nome da lista](ex: SERVIDOR-GERENTES) [direção](ex: in) (inclui a lista de acesso às interfaces necessárias)
+Para remover alguma configuração feita basta digitar o mesmo comando novamente precedido pelo comando 'no'. 
+(ex: Router(config)#no ip dhcp excluded-address 192.168.10.1 ou Router(config)#no ip access-list extended SERVIDOR-GERENTES)
+
+A configuração do NAT é parecida com a da lista de controle de acesso, primeiro cria-se uma lista de acesso padrão(já que não importa o IP de destino) e permite os IPs da rede que podem ter acesso fora da rede, depois informa qual interface é interna e qual é externa e então informa como sera feita a tradução.
+Router(config)#ip access-list standard NAT
+Router(config-std-nacl)#permit [IP da rede](ex: 172.16.0.0) [wildcard](ex: 0.0.255.255)
+Router(config)#interface [interface NAT interna](ex: gi0/0.1)
+Router(config-subif)#ip nat inside (seta a interface como NAT interna)
+Router(config)#interface [interface NAT externa](ex: serial 0/1/0)
+Router(config-subif)#ip nat outside (seta a interface como NAT externa)
+Router(config)#ip nat inside source list [nome da lista](ex: NAT) [interface NAT externa]
+(ex: serial 0/1/0) overload(informa que mais de um IP ira usar a saída ao mesmo tempo)
+
+Router#show ip nat translations (mostra as traduções feitas pelo NAT) 
+
+Router#show ip route (mostra as rotas de ip conhecidas pelo roteador)
+
+Para configurar uma rota IP estática:
+Router(config)#ip route [IP da rede](ex: 150.1.1.8) [máscara](ex: 255.255.255.252) [interface](ex: serial 0/1/0) 
+
+Configurar o protocolo RIP no roteador:
+Router(config)#router rip
+Router(config-router)#version 2(versão do protocolo)
+Router(config-router)#no auto-summary (para que o roteador resuma as sub-redes em apenas uma rede)
+Router(config-router)#network [IP da rede que vai divulgar](ex: 150.1.1.0)
+
+Configurar o protocolo OSPF no roteador:
+Router(config)#router ospf [número](ex: 1)
+Router(config-router)#network [IP da rede que vai divulgar](ex: 170.1.1.0) [wildcard](ex: 0.0.0.255) area [número da area](ex: 0)
+
+Configurar o protocolo BGP no roteador:
+Router(config)#router bgp [número AS(Autonomous System)](ex: 1000)
+Router(config-router)#neighbor [IP da porta do vizinho](ex: 160.1.1.2) remote-as [número AS do vizinho](ex: 2000)
+Router(config-router)#network [IP da rede que vai divulgar](ex: 150.1.1.0) mask [máscara](ex: 255.255.255.252)
+
+Redistribuição das rotas de IP do BGP para o OSPF:
+Router(config)#router ospf [número](ex: 1)
+Router(config-router)#redistribute bgp [número AS](ex: 2000) subnets(Se estiver utilizando redes Classless é necessário indicar ao roteador)
+
+Redistribuição das rotas de IP do BGP para o RIP:
+Router(config)#router rip
+Router(config-router)#default-information originate (indica o roteador como ponto de saída da rede)
+
+Para definir a rota padrão de saída do roteador:
+Router(config)#ip route 0.0.0.0 0.0.0.0 [porta de saída padrão](ex: serial0/1/0)
+
+Para habilitar o roteador para trabalhar com IPv6 e endereçar as interfaces:
+Router(config)#IPv6 unicast-routing 
+Router(config-subif)#ipv6 address [IP da porta](ex: 2003:BAA:0000:0000::BBBB)/[máscara CIDR](ex: 64)

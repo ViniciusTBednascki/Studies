@@ -1,0 +1,136 @@
+“Uma rede de computadores é formada por um conjunto de máquinas eletrônicas com processadores capazes de trocar informações e partilhar recursos”.
+
+IP - é o endereçamento que cada máquina recebe para que possa se comunicar com outras utilizando a internet.
+
+ping - Dentro do ping temos o protocolo ICMP responsável por fazer a requisição até uma máquina remota (Echo Request) e esperar a resposta (Echo Reply).
+
+ipconfig - é usado para ver as configurações de IP de minha máquina
+nslookup -  é usado para obter informações mais avançadas
+
+TTL - time to live, é o tempo de vida da informação enviada que diminui a cada passagem por diferentes máquinas (hops) evitando que a informação possa ficar presa em um loop e cause um travamento do tráfego.
+
+traceroute(bash)/tracert(cmd) - é usado para verificar a rota que a informação percorreu até chegar o destino.
+
+Os servidores DNS (Domain Name System, ou sistema de nomes de domínios) são os responsáveis por localizar e traduzir para números IP os endereços dos sites que digitamos nos navegadores.
+
+DHCP, um sistema presente em roteadores com e sem fio. O recurso cria uma espécie de Internet "interna", com endereços IP que só funcionam dentro da rede local. Assim, todos os dispositivos conectados a ela – computadores, celulares, aparelhos IoT, entre outros – compartilham o mesmo IPv4, mas têm IPs internos diferentes.
+
+Os nomes para os endereços IP podem ser configurados no arquivo C:\Windows\System32\drivers\etc\hosts
+
+nslookup - informa os endereços IP para o nome de domínio informado, esse reposta pode ser não autoritativa, se for obtida do cache salvo na própria máquina, ou autoritativa, quando recebida direto da máquina com esse endereço IP.
+
+-O Hub é um equipamento utilizado para interconectar diversos dispositivos finais.
+-NAT é um método de tradução de endereços privados e públicos.
+-Servidor é uma máquina centralizada que oferece serviços a um cliente (ex: computador)
+-Máscara de rede é usado para determinar se dois equipamentos estão na mesma rede
+
+8P8C - é um conector modular usado em terminações de telecomunicação e popularmente denominado RJ45. Os conectores 8P8C são usados normalmente em cabo par trançado.
+A conexão do conector 8P8C ao cabo de rede é chamado de crimpar.
+
+Dentro do cabo de rede existem 8 fios de diferentes cores, assim a placa de rede utilizara os fios em certas posições(como 1 e 2 para enviar dados - 3 e 6 para receber dados nos computadores e o inversos nos hubs).
+Quando os fios são conectados nas mesmas posições dos dois lados é chamado de cabo direto.
+Para evitar os problemas de comunicação entre máquinas com um mesmo tipo de placa de rede, existem dois padrões T568A/T568B para que seja possível essa comunicação. Essa conexão é chamada de cabo cruzado(crossver).
+Ao conectar uma placa de rede é preciso saber qual cabo usar (cabo direto ou cruzado).
+Algumas placas de rede mais modernas possuem o padrão auto-MDIX, que consegue detectar problemas na conexão do cabo e mudar a polaridade para que funcione.
+
+A limitação do hub é que esse não armazena o endereço de IP das máquinas conectadas, então ao receber dados ele irá retransmitir para todas as outras demais máquinas conectadas (broadcast), o que pode causar uma lentidão na rede e pode ser uma vunerabilidade de segurança.
+
+Wireshark - análisa o tráfego de daos e organiza-os por protocolo. Pode ser usado por um usuário malicioso em uma rede vulnerável para descobrir informações que estão sendo transmitidas.
+
+Protocolos e OSI(Open System Interconnection) - as anotações estão no outro arquivo ./OpenSystemInterconnection.txt
+
+Endereço MAC - Um endereço de controle de acesso à mídia (endereço MAC) de um dispositivo é um identificador único atribuído a uma interface de rede (ou Network Interface Controller - NIC). Para comunicações dentro de um segmento de rede, é usado como endereço de rede para a maioria das tecnologias de rede IEEE 802, incluindo Ethernet, Wi-Fi e Bluetooth. No modelo Open Systems Interconnection (OSI), os endereços MAC são usados ​​na subcamada de protocolo do controle de acesso ao meio da camada de enlace de dados. Como normalmente representado, os endereços MAC são reconhecíveis como seis grupos de dois dígitos hexadecimais, separados por hífens, dois pontos ou nenhum separador (consulte as Convenções de notação abaixo).
+https://pt.wikipedia.org/wiki/Endere%C3%A7o_MAC
+
+Switch - Grava o endereço MAC conectado a porta assim não enviando informações para todas as máquinas conectadas na rede.
+Um problema de segurança no switch seria a lotação da memória de endereços MAC, que pode ser feito enviando vários endereços falsos, comprometendo o funcionamento do switch que passa a se comportar como um HUB. Uma contravenção a essa prática é a limitação de endereços MAC que podem ser salvos por porta.
+
+Máscara de sub-rede - Separa o IP em duas partes: host e network, para que assim as máquinas em uma mesma rede possam comunicar-se entre si e com outras redes evitando excesso de tráfego de informações.
+Ao observar a máscara de rede ele irá dividir os valores 1111(bits) ou 255(decimal) em rede e os valores 0 em host.
+ex:
+	IP:            192 . 168 .     3 .  1
+	Máscara: 255 . 255 . 255 .  0
+	                |         rede        |host|
+
+Assim, no exemplo, para os computadores estarem em uma mesma rede que o IP apresentado, seus endereços devem comecar por 192.168.3._
+Computadores que estão em redes diferentes, ex:191.168.3.1, não irão conseguir comunicar-se com aquele endereço de IP.
+
+Roteador: Tem como função conectar-se a outras redes encaminhado os pacotes de dados e permitir que as máquinas conectadas se comuniquem com máquinas fora da rede.
+
+Cabo direto - Switch to router,Switch to PC or server,Hub to PC or server
+Cabo cruzado - Switch to hub, Router Ethernet port to PC NIC, alike devices.
+
+Padrão Fast Ethernet - possibilita apenas uma taxa de transferencia de até 100Mb/s mas é mais barato.
+Padrão Gigabit Ethernet - possibilita uma taxa de transferencia de atá 1Gb/s porém é mais cara.
+
+Putty - é um emulador de terminal muito utilizado para acesso remota à outras máquinas, assim pode ser utilizado para configurar equipamentos como roteadores.
+
+Para configurar o roteador é necessário conectar um computador à entrada de console do roteador, usando um cabo console que tem uma conexão RS232 no caso dos equipamentos da ciso, e utilizar um programa emulador de terminal como o Putty por exemplo.
+
+O exemplo de configuração do roteador da Cisco está no arquivo ./CiscoRouterConfig.txt
+
+Para que o computador possa comunicar-se com máquinas fora da rede é preciso inserir no 'Default Gateway' o ip da porta do roteador.
+
+Para configurar o roteador doméstico é só conseguir o IP do default gateway através do ipconfig na linha de comandoe copiar esse endereço para a barra de navegação do browser.
+
+O endereço IP privado que temos em nossas máquinas é convertido para IP públicos que nosso provedor de serviços nos fornece, através do NAT(Network address translation).
+https://pt.wikipedia.org/wiki/Network_address_translation
+
+Uma eplicação mais detalhada dos endereços IP está no arquivo ./IP.txt
+
+Quando um endereço IP é atribuído a uma máquina (cliente), dizemos que a configuração foi dinamicamente alocado. Os servidores DHCP normalmente possuem o que chamamos de “lease time”, ou seja possui um tempo de alocação de um endereço IP a uma máquina, quando esse tempo é expirado é preciso ocorrer uma renovação de endereço IP. Por isso ele é dinamicamente alocado 
+
+Para conseguir informações no terminal basta entrarno modo enable e ver as opções em show:
+Router>enable
+Router#show ?
+
+Router on a Stick - é a nomeação que se deu ao processo de separar a única interface de um roteador um subinterfaces para conseguir trabalhar com diferentes vlans.
+
+Ao instalar uma rede pode-se criar redundâncias(ex: três switchs interconectados) se for necessário que a rede continue initerrupta mesmo ocorrendo algum erro em um das partes.
+Mas ao montar uma redundância um dos problemas que ocorre é o loop do dado entre os switchs congestionando a rede, para solucionar isso existe o protocolo STP que terá como função desabilitar temporariamente uma das conexões para que não ocorra o loop, mas se a conexão principal tiver um problema STP reativa a conexão que estava desabilitada.
+
+A análise que o protocolo STP realiza para eleger o Switch Root seria através dos valores de prioridade e endereço MAC presentes dentro do protocolo BPDU. Esse conjunto de valores de prioridade e endereço MAC é conhecido como Bridge-ID.
+O primeiro critério que o STP irá analisar será o valor de prioridade, o Switch que apresentar menor prioridade será eleito como Root. Caso ocorra um empate entre as prioridades, o Switch irá analisar os endereços MAC e o que apresentar o menor endereço MAC é que será eleito como Root. Por isso é necessário que ao montar a rede definir o switch root como aquele que seja capaz de aguentar um maior tráfego de dados.
+
+A classificação de endereços IP por classes A,B,C apresenta um problema que é a grande discrepância entre os números disponíveis para hosts. Por isso se for necessário pode-se utilizar uma máscara de rede diferente das utilizadas nas classes. Para descobrir qual será a máscara utilizada, transforma-se o número necessário de hosts para binário e então descobrir quantos bits serão necessários para representar todos os números e assim aloca essa mesma quantidade de bits como 0 na máscara e transforma de volta para decimal para definir a nova máscara.
+
+Classless Inter-Domain Routing is a method for allocating IP addresses and for IP routing. The Internet Engineering Task Force introduced CIDR in 1993 to replace the previous classful network addressing architecture on the Internet. Its goal was to slow the growth of routing tables on routers across the Internet, and to help slow the rapid exhaustion of IPv4 addresses.
+IP addresses are described as consisting of two groups of bits in the address: the most significant bits are the network prefix, which identifies a whole network or subnet, and the least significant set forms the host identifier, which specifies a particular interface of a host on that network. This division is used as the basis of traffic routing between IP networks and for address allocation policies.
+Whereas classful network design for IPv4 sized the network prefix as one or more 8-bit groups, resulting in the blocks of Class A, B, or C addresses, under CIDR address space is allocated to Internet service providers and end users on any address-bit boundary. In IPv6, however, the interface identifier has a fixed size of 64 bits by convention, and smaller subnets are never allocated to end users.
+CIDR encompasses several concepts. It is based on variable-length subnet masking (VLSM) which allows the specification of arbitrary-length prefixes. CIDR introduced a new method of representation for IP addresses, now commonly known as CIDR notation, in which an address or routing prefix is written with a suffix indicating the number of bits of the prefix, such as 192.0.2.0/24 for IPv4, and 2001:db8::/32 for IPv6. CIDR introduced an administrative process of allocating address blocks to organizations based on their actual and short-term projected needs. The aggregation of multiple contiguous prefixes resulted in supernets in the larger Internet, which whenever possible are advertised as aggregates, thus reducing the number of entries in the global routing table.
+https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing
+
+Ao tentar acessar um servidor o computador ira mandar um pacote TCP SYN para o servidor e esse se receber o pacote completo ira retornar um pacote SYN + ACK para confirmar o recebimento do pacote, o computador então mandara outro pacote TCP ACK para confirmar o recebimento da resposta e então mandara o pacote de dados HTTP para o servidor.
+
+Na tecnologia da informação, uma lista de controle de acesso (ACL, do inglês Access Control List) é uma lista que define as permissões de acesso de um usuário a um determinado componente ou serviço de um sistema, como um arquivo ou diretório.
+Para que um servidor forneça acesso a um recurso, ele antes consulta a lista para verificar se o dispositivo que o está requisitando possui permissão para utilizá-lo. As listas de controle de acesso normalmente definem suas permissões com base em atributos do requisitante e do recurso solicitado, como a identificação do usuário, local de acesso, horário, nome do arquivo e endereço de rede.
+https://pt.wikipedia.org/wiki/Lista_de_controle_de_acesso
+
+Ao definir a lista de controle de acesso é possível definir a lista padrão ou aextendida, a diferença é que a padrão faz a verificação apenas na origem e a extendida faz a verificação na origem e no destino.
+Ao definir a lista é importante que as máquinas que terão permissão de envio e recebimento de dados tenham um IP estático para que o DHCP não o mude e torne a lista de acesso inutilizável e também excluir os IPs do pool DHCP para não haver problemas.
+Na definição do IP na lista é preciso também indicar o  wildcard, que seria o "inverso" da máscara, em que os octetos 0 indicam que aqueles valores não podem ser difirentes e os octetos 255 indicam que aquele valor tanto faz.
+
+Para fazer a transmissão de um provedor para o cliente utiliza-se o CSU/DSU que então transmite a placa de rede do roteador, mesmo que atualmente o CSU/DSU venha junto do roteador ainda é comum representar os dois separados e conectados por um cabo serial (cabo com transmissão de dados controlada).
+A conexão desse ponto demarcador era realizada com um equipamento chamado de CSU/DSU (Channel Service Unit/Data Service Unit). Tal equipamento era responsável por converter o sinal fornecido pelo provedor de serviços para uma transmissão serial, atuando como um modem. Dessa forma, utilizava-se um cabo serial, sendo o mais comum um cabo chamado de V.35 para conexão com uma placa serial presente no roteador.
+Hoje em dia, essa conexão serial foi substituída pela conexão com o cabo de rede que estamos acostumados uma vez que o equipamento CSU/DSU já está presente nas placas de redes dos roteadores empresariais mais modernos, não sendo necessário mais o uso dos cabos seriais. Embora, os cabos seriais hoje em dia não sejam mais utilizados, sua representação é comum em diagramas de rede como referência a conexão a rede de uma outra empresa.
+Na conexão do provedor com o cliente geralmente é utilizado um ip com máscara 255.255.255.252 para que a sub-rede possua apenas 2 IPs o da porta do provedor e o da porta do roteador
+
+O ponto demarcador seria um ponto instalado nas premissas do cliente o qual divide as responsabilidades na rede entre o provedor de serviços e o cliente final. Caso ocorra algum problema do ponto de demarcação para a rede interna, seria responsabilidade do cliente. Caso ocorra algum problema do ponto de demarcação para a rede externa, seria responsabilidade do provedor de serviços.
+
+O NAT (Network Address Translation) é usado para realizar a tradução de endereços IP privados, que só podem ser usados em uma rede interna para endereços IP públicos que podem ser usados para acessar a internet.
+
+Rede privada virtual, do inglês Virtual Private Network (VPN), é uma rede de comunicações privada construída sobre uma rede de comunicações pública (como por exemplo, a Internet). O tráfego de dados é levado pela rede pública utilizando protocolos padrões, não necessariamente seguros. Em resumo, cria uma conexão segura e criptografada, que pode ser considerada como um túnel, entre o seu computador e um servidor operado pelo serviço VPN.
+Uma VPN é uma conexão estabelecida sobre uma infraestrutura pública ou compartilhada, usando tecnologias de tunelamento e criptografia para manter seguros os dados trafegados. VPNs seguras usam protocolos de criptografia por tunelamento que fornecem a confidencialidade, autenticação e integridade necessárias para garantir a privacidade das comunicações requeridas. Alguns desses protocolos que são normalmente aplicados em uma VPN estão: Layer 2 Tunneling Protocol (L2TP), L2F, Point-to-Point Tunneling Protocol (PPTP) e o IP Security Protocol (IPsec). Quando adequadamente implementados, estes protocolos podem assegurar comunicações seguras através de redes inseguras.
+
+As redes LAN são redes geograficamente pequenas, que geralmente estão concentradas em apenas um local, tais redes são de responsabilidade do cliente final. As redes WAN são redes de longa extensão geográfica, redes de provedores de serviços costumam possuir suas redes em diferentes cidades e estados acomodando diversos clientes.
+
+Na comunicação entre roteadores utiliza-se protocolos de roteamento para que esses tenham conhecimentos das outras redes dos outros roteadores. Os protocolos RIP e OSPF sõa utilizados entre as redes internas do próprio provedor e o protocolo BGP é utilizado na comunicação entre roteadores de provoderas diferentes.
+
+Os números de Autonomous System são números usados para identificar redes de provedores de serviços e que permitem que um provedor de serviço troque informações com outros provedores de serviços vizinhos.
+
+Para que as máquinas na rede local consiguam acessar qulaquer ip na internet é preciso configurar uma rota padrão de saída passando o pacote para o roteador da provedora que será responsável por fazer a comunicação com os outros servidores.
+
+A rota default é a rota de saída padrão de uma rede, caso nenhuma entrada mais específica esteja presente na tabela de roteamento do roteador, a rota default irá assumir e encaminhará os dados para a interface que foi configurada
+
+Para que o roteador consiga estabelecer comunicação IPv6 entre as inerfaces de diferentes redes é preciso que todas tenham um endereço IPv6 definido.
+
