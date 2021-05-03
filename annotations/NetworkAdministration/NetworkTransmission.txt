@@ -1,0 +1,36 @@
+A escolha do cabo de rede depende da placa de rede do computador e qunatos dados a rede trafega.
+https://www.alura.com.br/artigos/entendendo-os-cabos-de-rede
+
+O cabo coaxial:
+O cabo coaxial consegue transmitir dados em até 10 Megabits por segundo (Mbps). Geralmente ele é usado pelos provedores de internet para conectar a rede local da casa com a internet. É aquele cabo que liga no seu roteador.
+Quando utilizamos o cabo coaxial, nossa rede fica em uma topologia chamada de Barramento. Todos os computadores da rede são conectados a um cabo principal. Quando um computador da rede se comunica, todos os outros esperam para poder falar. Caso dois computadores se comuniquem ao mesmo tempo, ocorre uma colisão e os pacotes precisam ser retransmitidos.
+https://pt.wikipedia.org/wiki/Rede_em_barramento
+
+cabo de par trançado
+Este cabo de rede é muito utilizado em redes locais, recebe este nome, pois é composto por quatro pares de cabos que são entrelaçados entre si. Isso faz com que esse cabo sofra menos interferências eletromagnéticas.
+Esse cabo, ao contrário do coaxial, pode ser usado em topologias onde todas as máquinas se comuniquem ao mesmo tempo. E também conseguem ser utilizados para ligar equipamentos de redes, como hubs e switches.
+
+Todo cabo de rede utiliza um conector. O cabo coaxial, por exemplo, utiliza um conector chamado de BNC, já os cabos de par trançado utilizam um conector chamado de RJ-45
+
+As velocidades de transmissão
+A principal diferença entre uma categoria e outra é a velocidade de transferência de dados. A categoria 5e, por exemplo, pode transferir até 1 Gbps (Gigabits de dados por segundo). Está é deve ser a categoria de cabos mais utilizada.
+A categoria 6 foi feita para transmitir grandes quantidades de dados. Ela transmite de 1Gbps à 10Gbps. Esta categoria está aos poucos substituindo a anterior.
+Além dessas, existem outras categorias de cabos de par trançado, como a categoria 5 que já está em desuso, ou a categoria 6a que transmite dados a partir de 10 Gbps.
+
+Cabos metálicos, como o cabo coaxial e o de par trançado, podem sofrer interferências eletromagnéticas de outros cabos, o que prejudica na transmissão dos dados. Por isso, alguns cabos são "blindados" para evitar essas interferências.
+A blindagem nada mais é do que uma malha de metal que cobre o cabo. Quando um cabo de par trançado é blindado, dizemos que ele é um cabo STP (Shielded Twisted Pair).
+Além desses cabos metálicos, existem outros que transmitem dados, não pela eletricidade, mas por pulsos de luz, como é o caso da fibra ótica.
+
+Como a fibra ótica utiliza a luz para transmitir os dados, ela não sofre interferências de outros cabos. E, da mesma forma que os cabos metálicos, possui categorias. Existem fibras óticas monomodo e multimodo.
+A principal diferença entre esses dois tipos de fibra é que na monomodo a luz não reflete dentro da fibra, enquanto na multimodo é refletida.
+Como na monomodo a luz consegue ir direto ao destino, sem refletir, os dados conseguem ser transmitidos com mais rapidamente chegando a terabits por segundo.
+
+padrões de Wi-Fi
+Existem alguns padrões de rede sem fio como: 802.11a, 802.11b, 802.11g, 802.11n. Cada um funciona sobre uma frequência diferentes, alguns na faixa de 2,4 GHz (Gigahertz), outros na faixa de 5 GHz. Se essas frequências forem diferentes uma rede não consegue ver a outra.
+https://www.alura.com.br/artigos/entendendo-os-padroes-de-wi-fi
+
+MIMO
+n radio, multiple-input and multiple-output, or MIMO (/ˈmaɪmoʊ, ˈmiːmoʊ/), is a method for multiplying the capacity of a radio link using multiple transmission and receiving antennas to exploit multipath propagation. MIMO has become an essential element of wireless communication standards including IEEE 802.11n (Wi-Fi), IEEE 802.11ac (Wi-Fi), HSPA+ (3G), WiMAX, and Long Term Evolution (LTE). More recently, MIMO has been applied to power-line communication for three-wire installations as part of the ITU G.hn standard and of the HomePlug AV2 specification.
+At one time, in wireless the term "MIMO" referred to the use of multiple antennas at the transmitter and the receiver. In modern usage, "MIMO" specifically refers to a practical technique for sending and receiving more than one data signal simultaneously over the same radio channel by exploiting multipath propagation. MIMO is fundamentally different from smart antenna techniques developed to enhance the performance of a single data signal, such as beamforming and diversity.
+
+https://www.alura.com.br/artigos/o-que-enfraquece-o-sinal-do-wi-fi

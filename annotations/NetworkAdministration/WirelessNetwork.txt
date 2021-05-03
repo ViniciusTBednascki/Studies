@@ -1,0 +1,37 @@
+A conexão wi-fi é feito por pontos de acesso. Para que a máquina possa utilizar o wi-fi ela precisa de uma plca de rede wi-fi.
+
+O SSID (Service Set Identifier) é um texto de até 32 caracteres que identifica as redes sem fio. É esse nome que os dispositivos utilizam para se conectar.
+O wi-fi pode ser configurado no ponto de acesso em sua porta respectiva. Os aparelhos irão buscar os SSIDs por perto e se esse já estiver gravado na memória ele irá tentar se conectar automaticamente. Diferentes pontos de acesso na rede podem ter o mesmo SSID, o que denomina-se ESSID (Extended Service Set ID).
+Quando utilizamos vários SSID na mesma rede, as máquinas utilizam o endereço MAC para saber qual o access point que estão conectadas. Em redes sem fio, isso é chamado de BSSID (Basic Service Set ID).
+O BSSID nada mais é do que o endereço MAC do ponto de acesso. Mesmo sem ter mais de um access point com o mesmo nome, os dispositivos sempre utilizam o BSSID para realizar a comunicação com o ponto de acesso.
+Para que os dispositivos possam se comunicar com o pontode acesso esse faz um brodcast do SSID para todos que estejam no alcance, mas o pontode acesso pode ser configurado para não fazer o brodcast, essa configuração é chamada de SSID oculto e assim o aparelho não conseguirar achar o ponto de acesso se esse não estiver salvo na memória.
+
+https://www.alura.com.br/artigos/entendendo-os-padroes-de-wi-fi
+Padrões de redes sem fio:
+			    A	    B	    G	    N
+taxa de transferencia:	54Mb/s	11Mb/s	54Mb/s	300Mb/s
+Frequencia:		5Ghz	2.4Ghz	2.4Ghz	2.4Ghz
+
+Por causa dos padrões trabalharam em frequencias diferentes eles são imcomptíveis entre si.
+O padrão A tem um custo maior e causa também um maior consumo de bateria dos aprelhos que o padrão B, porém o padrão B trabalha na mesma frequencia que muitos aparelhos domésticos como telefones sem fios, microondas e aparelhos bluetooh, o que pode causar problemas de interferencia na rede.
+O padrão G foi uma melhoria em relação ao padrão B, utilizando a mesma frequência, porém com uma taxa de transferencia igual ao do padrão A.
+O padrão N possui um alcance do sinal maior, o sinal é mais estável e é compatível com os outros padrões (B e G), além de ter uma taxa de transferencia muito maior que os outros padrões devido a tecnologia MIMO (Múltiplas entradas e múltiplas saídas), que utiliza mais de uma antena para a transmissão de dados.
+Outro padrão mais recente é o AC que é compatível com os padrões A e N.
+https://www.lifewire.com/wireless-standards-802-11a-802-11b-g-n-and-802-11ac-816553
+
+Uma forma de potencializar o sinal é utilizar um repetidor de sinais. Esse dispositivo captura o sinal que o ponto de acesso emite e incrementa ele. Fazendo com que o sinal chegue a pontos que não poderia chegar antes, ou, melhore o sinal em locais que este estava fraco.
+
+Os sinais de wi-fi atuam em uma faixa de frequencias e quando a faixa de dois sinais se intersectam isso pode causar interferencia, para evitar esse problema foram criados os canais de wifi em que há uma pequena alterção da frequência (ex: 2.412Ghz , 2.437Ghz) assim ao alocar os diferentes sinais de wifi em diferentes canais evita-se a interferencia entre eles. Os canais mais comuns são o 1, 6 e 11.
+
+Como a comunicação com o ponto de acesso não é física, como nos cabos de rede, o ponto de acesso não tem conhecimento da localização dos aparelhos conectados, por isso todas as transmissões serão brodcast, por isso se não houver uma forma de criptografia dos dados na rede essa terá serios problemas de segurança.
+
+WEP - Este protocolo foi lançado como um padrão de segurança em 1997 e tornou-se o pioneiro no assunto de proteção de redes sem fio. Ele utiliza o algoritmo RC4 para criptografar os pacotes que serão trocados numa rede sem fios e usa também uma função detectora de erros que verifica se a mensagem recebida foi corrompida ou alterada no meio do caminho.
+Entretanto, depois de vários estudos e testes realizados com este protocolo, descobriu-se algumas vulnerabilidades e falhas que fizeram com que o WEP perdesse quase toda a sua credibilidade. O próprio algoritmo de criptografia RC4 foi apontado como o principal calcanhar de Aquiles do protocolo, e mesmo sendo indicadas outras opções para substituí-lo, o WEP caiu em descrédito e deixou de ser usado em aplicações sérias.
+
+WPA - O WPA pode ser considerado um protocolo WEP melhorado, já que ele surgiu a partir de um esforço conjunto de membros da Aliança Wi-Fi e do IEEE para combater algumas das vulnerabilidades do WEP e aumentar o nível de segurança das redes sem fio. Para melhorar a criptografia de dados, o WPA utiliza uma chave-mestra compartilhada. Por causa disso, em se tratando de método de distribuição de chaves de autenticação, o WPA pode ser classificado como WPA-Personal, WPA-Enterprise e Wi-Fi Protected Setup.
+No primeiro método, também conhecido como modo WPA-PSK (chave pré-compartilhada), cada dispositivo de rede wireless autentica com o ponto de acesso utilizando a mesma chave de 256 bits gerada a partir de uma senha ou frase secreta. Esse método foi projetado o uso em redes pequenas e não requer um servidor de autenticação.
+Já o WPA-Enterprise é conhecido como modo WPA-802.1x, e às vezes apenas WPA (em oposição ao WPA-PSK). Esse método foi projetado para redes corporativas e, por isso, requer um servidor de autenticação RADIUS, o que exige uma configuração mais complexa, porém fornece segurança adicional contra, por exemplo, ataques de dicionário de senhas curtas. O modo WPA-Personal e o WPA-Enterprise estão disponíveis tanto com WPA quanto WPA2.
+
+No WEP é utilizado somente uma chave pública de segurança conhecida por todos os dispositivos, já no WPA utiliza chave público-privada, assim os dispositivos utilizam a chave pública (a senha da rede) para se conectar a rede e a chave privada para comunicação do dispositivo com o ponto de acesso.
+
+O roteador sem fio é mais utilizado em redes domésticas ou empresas pequenas,  pois como esses aparelhos geralmente ja vem com configurações padrões de DHCP e IP pode causar conflitos na rede, assim é preferido em empresas maiores a centralização de servidores roteadores, DNS e DHCPs.
