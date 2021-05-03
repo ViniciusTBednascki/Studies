@@ -1,0 +1,105 @@
+Os hubs não conseguem “aprender” qual equipamento está conectado em cada porta. Dessa forma, ele repassa a informação para todas as suas portas, causando uma lentidão em nossa rede, assim como uma potencial vulnerabilidade de segurança visto que um usuário mal-intencionado poderá fazer o uso de análises de protocolos de rede para decifrar o que uma possível vítima estava acessando.
+
+LOTAÇAO DA MEMÓRIA DO SWITCH
+O hacker pode vir a comprometer o funcionamento de um switch ao "lotar" essa memória com uma série de endereços mac. Uma vez que essa memória está cheia, o Switch não consegue distinguir que máquina está conectada em cada porta e dessa forma, ele passará a atuar como se fosse um hub.
+
+A simulação pode ser feita através do gns3 ecom utilizando o kali linux com uma virtualBox, se estiver no windows.
+
+para fazer um ping continuo: ping [IP] -t
+
+No Kali Linux:
+ifcoonfig (mostra as configurações nas interfaces)
+macof -i [interface](ex: eth0) (overflow de endereços mac para atacar o switch)
+
+no console do computador: arp -a (mostra a tabela de endereços salvos na memória)
+
+Configurar proteção da porta do switch para apenas um endereço mac:
+switch#show mac-address-table (mostra os endereçs salvos)
+switch(config)#interface [interface] (ex: fa0/1)
+switch(config-if)#switchport mode access (mudar para o modo de acesso)
+switch(config-if)#switchport port-security mac-address [endereço mac](ex: 00E0.B0AE.A127)
+Dessa forma, estamos configurando essa porta para aceitar somente um endereço mac. Caso o hacker tente realizar esse ataque inserindo vários endereços mac, a porta do switch irá desabilitar e o hacker não terá sucesso.
+
+MITM
+(bettercap e setoolkit)
+Outro ataque possível é o MITM(man in the middle) onde o hacker faz com que todos os protocolos de comunicação entre duas máquinas passem pelo seu computador primeiro. Feito através do "envenenamento" da tabela arp (arp spoofing).
+https://www.veracode.com/security/arp-spoofing
+
+O ataque Man In The Middle consiste em explorar a forma sem estado (stateless) na qual o protocolo ARP trabalha. Dessa forma, um Hacker pode usar de ferramentas para enviar respostas desse protocolo com o intuito de manipular a tabela ARP de suas vítimas para ficar assim no meio da comunicação e visualizar o que é trafegado entre os dispositivos manipulados.
+
+ARP -a (mostra a tabela arp de endereços salvos, cmd modo administrador)
+
+No Kali Linux:
+É preciso primeiro instalar a ferramenta pelo console:
+(no curso o instrutor utilizou mitmf, mas essa é uma ferrementa desatualizada)
+apt-get install mitmf
+então para fazer o ataque de arp spoofing:
+mitmf --arp --spoof --target [IP vítima] --gateway [IP roteador] -i [interface]
+
+DNS spoofing - feito utilizando ferramentas para redirecionar a tradução da URL para uma página em controle do hacker, geralmente cópia da página que a vítima pretende acessar e redirecionando a comunicação para essa cópia, assim tendo acesso as informações que a vítima mande para essa página.
+No Kali Linux:
+altera no arquivo mitmf.conf para que *alura.com.br seja redirecionado para o ip do hacker
+Cria-se a página que a vítima irá acessar e incia um servidor para que a vítima acesse.
+então inicia-se o ataque:
+mitmf --arp --spoof --target [IP vítima] --gateway [IP roteador] -i [interface] --dns
+
+DoS
+(slowloris)
+Um ataque de negação de serviço ou em inglês Denial Of Service (DoS) ocorre quando temos um usuário que utiliza de recursos para causar uma sobrecarga em um sistema com o principal objetivo de torná-lo indisponível para outros usuários.
+
+O Slowloris abre mútiplas conexões com o alvo de destino e tenta manter essas conexões ativas pelo máximo tempo possível. O Slowloris encaminha continuamente requisições HTTP de forma parcial, as quais não são completadas. Os serviços que são alvos desse ataque podem manter essas conexões abertas aguardando que as requisições iniciadas sejam completadas. Dessa forma, a ideia é que em algum momento, o pool de conexões será consumido e novas requisições legítimas não serão processadas.
+
+Proteção contra DoS
+a utilizaçao de um ou outro equipamento vai depender muito do cenário ou necessidade.
+
+IDS - intrusion detection system, é um equipamento conectado na rede do servidor que fará um espelhamento de todo o tráfego de acesso e manda um aviso caso encontre atividades suspeitas mas não impede o ataque de ser realizado.
+IPS - intrusion prevention system, é uma equipamento conectado entre o tráfego de dados e o servidor e que irá impedir a transmissão adiante de dados que forem suspeitos.
+
+O Intrusion Detection System (IDS) recebe apenas cópias dos tráfego, dessa forma, ele não é capaz de impedir que um ataque seja propagado para outros pontos da nossa rede. Ele irá encaminhar alarmes para que possamos assim saber dos problemas que foram detectados e encontrar soluções.
+O Intrusion Prevention System (IPS) é conectado diretamente na rede, dessa forma, ao analisar algum tipo de anomalia o IPS é capaz de impedir que esse tráfego seja propagado para outros pontos da minha rede.
+
+DDoS 
+Distibuted denial of service, é o ataque DoS feito por diversas máquinas, geralmente botnets. Esses computadores são infectados e comprometidos para que realizem o ataque simultaneo a um servidor.
+O ataque DDoS (Distributed Denial of Service) consiste em tirar a concentração do ataque em um usuário, como é feito no ataque de DoS e distribuir o ataque por vários usuários. Isso pode ser obtido por exemplo quando usuários fazem download de arquivos infectados. Uma vez que tais máquinas foram infectadas, o Hacker poderá controlá-las para que possa assim iniciar um ataque distribuído contra um serviço. O objetivo de tal ataque seria de causar uma "saturação" no link do alvo e com isso torná-lo indisponível para que outros usuários acessem o serviço.
+
+Uma botnet é um grupo de máquinas que foram comprometidas de alguma forma (por exemplo vírus, malware, etc). Tais máquinas infectadas passam a ser usadas por hackers para fazerem ataques contra um determinado serviço a fim de torná-lo indisponível. Pelo fato de termos várias máquinas atuando nesse ataque, chamamos esse de um ataque de negação de serviços distribuído (DDoS).
+
+Ataques do lado do servidor
+(Nmap metasploit Nessus)
+O Nmap (Network Mapper) é um programa usado para reconhecimento de hosts e serviços que estão rodando em determinada rede, sendo assim uma ferramenta muito útil para verificar possíveis vulnerabilidades que possam exisitir.
+nmap -A [IP do servidor]
+Ao verificar os serviços e as versões que estão sendo utilizados, pode-se ver se algum desses possui alguma vulnerabilidade que pode ser atacada.
+Esses ataque pode ser feito por explois utilizando frameworks como o Metasploit, podendo assim até conseguir acesso remoto a máquina atacada.
+
+Existe também softwares especializados em verificar as vulnerabilidades das versões dos serviços que estão sendo utilizados como o Nessus por exemplo. As vulnerabilidades encontradas pelo Nessus são documentadas na Common Vulnerabilities and Exposure (CVE) e podem ser vistas em National Vulnerability Database e exploits dessas vulnerabilidades podem ser obtidos em Exploit Database (recomendado pois existe uma verificação dos exploits postos por usuarios).
+
+O Reverse Shell seria a forma na qual o comando de uma máquina é obtida através de uma conexão da máquina alvo com a máquina de ataque. Ou seja, a conexão é estabelecida na direção reversa ao qual o ataque é realizada.
+Esse tipo de ataque torna-se muito útil, pois é possível que equipamentos de segurança como o Firewall nos conceda permissão de acesso a rede interna uma vez que nosso pacote é um retorno a uma requisição que foi originada por um usuário interno a rede.
+
+Uma das formas de se obter um Reverse Shell seria da vítima clicar em um arquivo malicioso criado por um Hacker e através desse arquivo malicioso ocorrerá uma conexão reversa com a máquina de ataque.
+Tais arquivos podem ser criados por exemplo com o msfvenom, onde podemos especificar o sistema operacional da vitima e como queremos realizar o ataque.
+
+
+FIREWALL
+O firewall é usado para dividir uma rede segura (rede interna) de uma rede não segura(por exemplo, a internet) e podemos assim controlar o tráfego que é permitido ou negado entre a rede interna e a rede externa. De forma geral, um usuário que esteja na rede interna poderá acessar recursos que estão na rede externa, porém um usuário da rede externa não terá permissão de acessar recursos da rede interna.
+
+Região DMZ - a região desmilitarizada seria a região na qual temos recursos que devem ser acessados por usuários da internet. Dessa forma, conseguimos isolar essa região de recursos que precisam ser acessados externamente dos recursos que devem ser acessados somente por usuários de nossa rede interna.
+
+Os firewalls stateful conseguem guardar em sua memória informações das requisições internas que foram iniciadas. Quando ocorre um retorno desse pacote o firewall compara com sua tabela de memória elementos como endereço IP, portas de comunicação, etc e com isso consegue definir que trata-se de uma informação de retorno e com isso permitirá acesso a rede interna.
+
+O firewall é um dos vários elementos de extrema importância para proteção de acessos não autorizados. Conceitualmente tem a função de bloquear qualquer tipo de tráfego e permitir somente os acessos autorizados. O firewall pode ser usado tanto para proteção de um rede, mas também para a proteção de um único servidor.
+Dependendo do seu provedor de serviços, será necessário configurar algum elemento de proteção. No caso de se tratar de hosts Linux, o iptables é uma excelente opção. A AWS oferece o recurso Security Groups, que nada mais é do que um firewall com uma interface gráfica, nativo da plataforma.
+
+Criação de instancias e utilização do aws-EC2: https://intellipaat.com/blog/what-is-amazon-ec2-in-aws/
+
+A comunicação do protocolo HTTP é feita através da porta 80.
+A comunicação do protocolo SSH é feita através da porta 22.
+Portas padrão dos protocolos: 
+https://www.iana.org/assignments/service-names-port-numbers/service-names-port-numbers.xhtml
+
+Na criação das regras do firewall pode-se definir essas como inbound ou outbound. Outbound limita o acesso da rede interna para outras redes e inbound limita o acesso de outras redes para a rede interna.
+
+Uma dica de segurança é mudar a porta de acesso padrão de gerenciamento, como do protocolo SSH e  do servidor.
+https://www.ionos.com/help/server-cloud-infrastructure/getting-started/important-security-information-for-your-server/changing-the-default-ssh-port/
+
+

@@ -1,0 +1,25 @@
+Cisco Packet Tracer
+Wireshark
+Putty
+wifi analyzer
+VirtualBox
+kali linux
+GNS3
+bettercap
+setoolkit
+slowloris
+Nmap
+metasploit
+Nessus
+aws
+
+https://www.alura.com.br/artigos/diferencas-entre-hubs-e-switches
+https://www.alura.com.br/artigos/entendendo-os-cabos-de-rede
+https://www.alura.com.br/artigos/entendendo-os-padroes-de-wi-fi
+https://www.alura.com.br/artigos/o-que-enfraquece-o-sinal-do-wi-fi
+https://www.alura.com.br/artigos/conhecendo-o-modelo-osi
+https://www.alura.com.br/artigos/como-acessar-servidores-remotamente-com-ssh
+https://www.alura.com.br/artigos/conhecendo-algumas-topologias-de-rede
+https://www.alura.com.br/artigos/entendendo-o-ipv6
+https://www.alura.com.br/artigos/criando-listas-de-acesso-nos-roteadores-cisco
+https://intellipaat.com/blog/what-is-amazon-ec2-in-aws/

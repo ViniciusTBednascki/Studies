@@ -134,3 +134,14 @@ A rota default é a rota de saída padrão de uma rede, caso nenhuma entrada mai
 
 Para que o roteador consiga estabelecer comunicação IPv6 entre as inerfaces de diferentes redes é preciso que todas tenham um endereço IPv6 definido.
 
+A maneira que os computadores se conectam na rede, é chamada de topologia, existem diversas maneiras de conectar computadores por meios físicos, utilizando cabos ou redes sem fio, por exemplo.
+
+Quando estamos falando da maneira que os computadores estão conectados fisicamente, dizemos que esta é a topologia física. Porém, não basta dois computadores estarem conectados fisicamente para poderem se comunicar. Para isso, devem existir regras de comunicação que falam como os computadores devem se comunicar.
+Ou seja, dependendo da regra podemos ter meios diferentes dos computadores comunicarem uns com os outros, neste caso falando sobre as conexões lógicas que os computadores fazem, ou falando sobre as topologias lógicas.
+  ponto-a-ponto ou P2P
+  barramento
+  estrela
+  Árvore, ou Hierárquica
+  Anel ou Token Ring
+  Mesh
+https://www.alura.com.br/artigos/conhecendo-algumas-topologias-de-rede

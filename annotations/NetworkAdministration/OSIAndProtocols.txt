@@ -1,10 +1,10 @@
-https://pt.wikipedia.org/wiki/Modelo_OSI
-
 Modelo de referência da ISO, tem como principal objetivo ser um modelo padrão para protocolos de comunicação entre diversos tipos de sistema, garantindo a comunicação end-to-end. 
 
 Trata-se de uma arquitetura modelo que divide as redes de computadores em 7 camadas para obter camadas de abstração. Cada protocolo realiza a inserção de uma funcionalidade assinalada a uma camada específica.
 
 O Modelo OSI é composto por 7 camadas, sendo que cada uma delas realizam determinadas funções. As camadas são: Aplicação (Application), Apresentação (Presentation), Sessão (Session), Transporte (Transport), Rede (Network), Dados (Data Link) e Física (Physical).
+
+https://pt.wikipedia.org/wiki/Modelo_OSI
 
 HTTPS (Hyper Text Transfer Protocol Secure - protocolo de transferência de hipertexto seguro) é uma implementação do protocolo HTTP sobre uma camada adicional de segurança que utiliza o protocolo SSL/TLS. Essa camada adicional permite que os dados sejam transmitidos por meio de uma conexão criptografada e que se verifique a autenticidade do servidor e do cliente por meio de certificados digitais. A porta TCP usada por norma para o protocolo HTTPS é a 443.
 O protocolo HTTPS é utilizado, em regra, quando se deseja evitar que a informação transmitida entre o cliente e o servidor seja visualizada por terceiros, como por exemplo no caso de compras online. A existência na barra de endereços de um cadeado (que pode ficar do lado esquerdo ou direito, dependendo do navegador utilizado) demonstra a certificação de página segura (SSL/TLS). A existência desse certificado indica o uso do protocolo HTTPS e que a comunicação entre o browser e o servidor se dará de forma segura. Para verificar a identidade do servidor é necessário um duplo clique no cadeado para exibição do certificado.
@@ -48,3 +48,8 @@ RIP implements the split horizon, route poisoning and holddown mechanisms to pre
 In RIPv1 routers broadcast updates with their routing table every 30 seconds. In the early deployments, routing tables were small enough that the traffic was not significant. As networks grew in size, however, it became evident there could be a massive traffic burst every 30 seconds, even if the routers had been initialized at random times.
 In most networking environments, RIP is not the preferred choice for routing as its time to converge and scalability are poor compared to EIGRP, OSPF, or IS-IS. However, it is easy to configure, because RIP does not require any parameters, unlike other protocols. RIP uses the User Datagram Protocol (UDP) as its transport protocol, and is assigned the reserved port number 520.
 https://en.wikipedia.org/wiki/Routing_Information_Protocol
+
+O SSH é um protocolo de rede para o usuário internet acessar, administrar e modificar  remotamente seus servidores. Isso inclui gerenciamento de contas de hospedagem que usam, por exemplo, serviços de VPS.
+Tudo isso acontece pela rede. Nesta situação, dados, informações, documentos e arquivos são alcançados pelo usuário através de uma comunicação criptografada entre máquinas (o computador do usuário) e servidores (de hospedagem).  
+O que acontece é que essa comunicação contém um mecanismo de autenticação. Nele, é aplicada uma tecnologia de criptografia avançada que mascara os dados e transações de quem está acessando até o quê exatamente está se querendo acessar.
+https://www.weblink.com.br/blog/tecnologia/acesso-ssh-o-que-e/
