@@ -12,6 +12,7 @@ Nmap
 metasploit
 Nessus
 aws
+PfSense
 
 https://www.alura.com.br/artigos/diferencas-entre-hubs-e-switches
 https://www.alura.com.br/artigos/entendendo-os-cabos-de-rede

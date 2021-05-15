@@ -102,4 +102,74 @@ Na criação das regras do firewall pode-se definir essas como inbound ou outbou
 Uma dica de segurança é mudar a porta de acesso padrão de gerenciamento, como do protocolo SSH e  do servidor.
 https://www.ionos.com/help/server-cloud-infrastructure/getting-started/important-security-information-for-your-server/changing-the-default-ssh-port/
 
+pfSense
 
+para configurar o pfsense é importante configurar o ip da interface de WAN e de LAN, configurar também o servidor DNS e o gateway (o roteador).
+
+Logo após a instalação, sem termos feito nenhuma customização, é possível acessar o pfSense através do browser (porta 80) e também através do console do próprio firewall. Por default, o acesso via SSH vem desabilitado.
+Para um gerenciamento seguro, é recomendável que você desabilite o acesso à porta 80 ( a porta padrão do HTTP) e habilite o gerenciamento web exclusivamente pela porta 443 (HTTPS).
+É fundamental que você configure uma senha para acesso ao console, pois mesmo tendo acesso físico ao pfSense, é necessário autenticação para acessá-lo.
+
+Logo após a instalação default do pfSense, todo tráfego inbound é bloqueado, enquanto todo o tráfego outbound é liberado. O uso de aliases facilita e organiza melhor as regras do pfSense. É uma boa prática utilizá-los.
+
+Caso o tráfego/protocolos com acesso à Internet não sejam limitados, todas as redes (internas) permitidas poderão acessar qualquer tipo de serviço na Internet. Em geral esta não é uma boa prática corporativa! Limitar os tipos de protocolos diminui a incidência de problemas de segurança.
+
+Quando um servidor na rede interna tiver o seu acesso concedido a partir da Internet, é necessário fazermos um NAT através da opção PortFoward.Por default, o pfSense já cria automaticamente o NAT, utilizando o próprio endereço da interface WAN.
+
+
+iptables
+
+netfilter é um framework que ja vem embutido no kernel do linux.
+O iptables é um recurso interno do kernel do Linux. Você não precisa instalá-lo ou mesmo ativá-lo, basta apenas configurar as regras de bloqueio.
+
+adcionando regras ao iptables:
+Para adcionar uma regra ao final da chain: iptables -A [chain de regras](INPUT/OUTPUT/FOWARD) -p [protocolo](ex: tcp/udp/icmp) -s [ip de origem](ex: 0.0.0.0/0) -d [ip de destino](ex: 192.168.0.16) --dport [porta de comunicação](ex: 80/22/443) -j [função](ex: ACCEPT/DROP)
+
+Para inserir uma regra em uma posição específica: iptables -I [chain de regras](INPUT/OUTPUT/FOWARD) [posição](ex: 1/2/3/4/...) -p [protocolo](ex: tcp/udp/icmp) -s [ip de origem](ex: 0.0.0.0/0) -d [ip de destino](ex: 192.168.0.16) --dport [porta de comunicação](ex: 80/22/443) -j [função](ex: ACCEPT/DROP)
+
+
+nesse exemplo como a origem é de qualquer ip e o firewal é para a própria máquina pode-se fazer:
+iptables -A INPUT -p tcp --dport 80 -j ACCEPT
+
+Para apagar as regras criadas, usa-se o comando iptables -F
+Para listar todas as regras, usamos iptables -L -n(para não resolver nomes DNS)
+A política padrão é ACCEPT (significa que se o pacote não estiver em nenhuma das regras ele passa)
+Para apagar uma regra, iptables -D [chain de regras](INPUT/OUTPUT/FOWARD) [numero da regra]
+
+O posicionamento das regras dentro de um firewall é pré-requisito para o correto funcionamento do mesmo. Uma boa prática é colocar logo no início as regras responsáveis por tratar o maior volume de requisições, dessa maneira você otimiza os recursos (memória, CPU, etc) utilizados pelo firewall.
+
+Partindo do princípio que há um servidor web, banco de dados, entre outras aplicações, tudo funcionando na mesma máquina, quando o servidor web consulta o banco de dados, por exemplo, o IP de origem não é o IP associado à interface ethernet, e sim o IP da interface loopback. Por isso, deve-se criar uma regra para permitir essas conexões internas do servidor. Se não houver uma regra desse tipo no firewall, as conexões internas na mesma máquina não irão funcionar.No momento de criar a regra, para permitir qualquer origem ou destino, basta não especificá-los. Além disso, passa-se a flag -i (de interface) e especifica-se a interface lo (de loopback): iptables -A INPUT -i lo -j ACCEPT
+
+Se você desejar logar um determinado tipo de acesso é necessário criar primeiro a regra tipo LOG e depois a regra em questão. Caso essa ordem seja invertida, não haverá pacotes a serem logados, uma vez que eles já encaixaram na regra anterior.
+
+Mesmo sendo o papel do firewall bloquear todo tipo de tráfego que não foi explicitamente permitido, é necessário ao final da criação de todas as regras mudar a POLICY para DROP. Por isso uma boa prática é criar todas as regras, acompanhar o que realmente está passando pelo firewall e por fim aplicar o DROP.
+
+Em sistemas baseados em debian é possivel baixar o pacote "iptables-persistent" para gerenciar a criação automática das regras salvas no arquivo ao iniciar o servidor.
+
+iptables -I INPUT 1 -p icmp --icmp-type echo-request -j DROP (Caso ache necessário pode-se utilizar esse comando para bloquear o ping à essa máquina)
+
+CRIANDO UMA IPTABLES PARA O SERVIDOR:
+	Regra para aceitar conexões que já foram estabelecidas e estão salvas na memória:
+	iptables -A INPUT -m state --state ESTABLISHED,RELATED -j ACCEPT (esse regra é importante de se colocar em primeira para economizar recursos, já que deixara que conexões que ja foram estabelecidas não precisem passar pela tabela para serem aceitas.
+
+	iptables -A INPUT -i lo -j ACCEPT (essa regra é importante para que a comunicação entre os serviços dentro da máquina utilizando o ip de loopback sejam aceitos e possam funcionar, como por exemplo a comunicação do servidor com o banco de dados.)
+
+	iptables -A INPUT -p tcp -d 192.168.0.16 --dport 80 -j ACCEPT (habilitando a comunicação na porta 80 (HTTP) de qualquer origem)
+
+	iptables -A INPUT -p tcp -d 192.168.0.16 --dport 443 -j ACCEPT (habilitando a comunicação na porta 80 (HTTPs) de qualquer origem)
+
+	iptables -A INPUT -p tcp -s 192.168.0.9 -d 192.168.0.16 --dport 22 -j ACCEPT (Essa regra é para se for neccessário a comunicação SSH com o servidor, o melhor é definir um ip de origem fixo, mas se não for possivel pode se definir origem qualquer)
+
+	iptables -I INPUT 5 -p tcp -s 192.168.0.9 -d 192.168.0.16 --dport 22 -j LOG (regra para criar logs de conexão na porta 22, importante inserir essa regra antes da regra de conexão)
+
+	iptables -A INPUT -p tcp -s 192.168.0.9 -d 192.168.0.16 --dport 3389 -j ACCEPT (Essa regra é para se for neccessário a comunicação RDP com o servidor, o melhor é definir um ip de origem fixo, mas se não for possivel pode se definir origem qualquer)
+
+	iptables -P INPUT DROP (mudar a politica da chain para DROP, permitindo assim somente as conexãos informadas na tabela)
+
+	iptables-save > [local do arquivo](ex: /home/server/Documentos/regras-firewall) (Esse comando serve para salvar as regras atuais do iptables em um arquivo)
+
+	iptables-restore < [local do arquivo](ex: /home/server/Documentos/regras-firewall) (Esse comando serve para utilizar as regras salvas em um arquivo no iptables)
+
+
+Existem diversos protocolos que conseguem realizar o acesso remoto, dois dos mais conhecidos são o SSH e o Telnet. Com ambos protocolos nós conseguimos acessar outro computador remotamente e criar um terminal virtual, que nada mais é do que a emulação do terminal da máquina acessada em nossa própria máquina. 
+Ambos protocolos podem ser usados para acessar computadores remotamente, porém existe algo muito importante que diferencia os dois. A criptografia. O telnet não possue criptografia o que faz com que as informações estejam possam ser interceptadas e lidas por ataques de Men in the Middle e por sniffers como o wireshark.
