@@ -1,0 +1,69 @@
+Organização de arquivos:
+https://guialinux.uniriotec.br/tar/
+
+man [comando] (mostra a documentção do comando)
+
+cat [nome do arquivo] | grep [palavra procurada] (esse comando manda a saída para que o grep filtre apenas a linhas do texto com a palavra procurada)
+
+Visualizando e terminando processos:
+pstree (mostra um diagrama no qual é possível identificar quem originou (processo pai) cada um dos processos (processo filho))
+
+ps (mostra os processos rodando no bash atual)
+ps -e (lista todos os processos rodando no Linux)
+ps -ef (lista os processos com mais informções como: o momento de inicialização e a pasta onde se encontra)
+ps -ef | grep [palavra procurada] (esse comando irá passar a saída do ps para o software grep que fará uma filtragem e devolvera as linhas em que a palavra procurada aparece]
+
+kill -TERM [ID do processo] (termina o processo, é o sinal default)
+kill -9 [ID do processo] (força a finalização do processo)
+kill -STOP [ID do processo] (pausa a execução do processo)
+kill -CONT [ID do processo] (continua a execução do processo pausado)
+
+killall (-9) [nome do processo] (mata todos os processos com o nome selecionado)
+
+top (comando que mostra muitas informações sobre os processos como a utilização de CPU e Memória)
+top -u [nome do usuario] (mostra os processos apenas do usuario)
+top -p [ID do processo] (mostra as informações apenas do processo específico)
+Quando dentro da vizualição do top, pode-se apertar d para mudar o delay de atualização.
+
+
+Processos pelo terminal:
+ctrl+z - pausa o processo que está rodando no foreground do bash
+jobs - lista todos os processos que estão rodando no background ou pausado no terminal (firefox, gedit, etc...)
+bg [nº do job] - roda o processo no background
+fg [nº do job] - roda o processo no foreground
+[comando de inicialização do processo] & - inicializa o processo diretamente no background
+
+
+Execução de Scripts e alteração da permissão de arquivos:
+sh [nome do arquivo] - executa os scripts no terminal (os scripts podem ser escritos com o gedit)
+
+As permissões dos arquivos são divididas em : r(Leitura) w(Escrita) x(Execução) e o caracter especial d(Diretório)
+Essas permissões podem ser atribuidas diferentemente entre tres grupos: u(o dono do arquivo), g(o grupo de usuarios ao qual o dono do arquivo pertence) e o(os outros usuarios).
+
+ls -l (mostra as permissões aos arquivos e a qual usuario eles pertencem)
+
+chmod [grupo](ex: u/g/o)[alteração da permissão](ex: +x/-x, +w/-w, +r/-r) [nome do arquivo] - adciona/retira a permissão de execução,escrita ou leitura do arquivo para o grupo de usuarios definido(se não for definido nenhum grupo a alteração será feita para todos os usuarios)
+
+Para que arquivo seja executado usando somente o nome ele deve estar na pasta /usr/bin/
+
+
+Procurar arquivos:
+locate [nome do arquivo] - lista todos os arquivos no sistema com o nome procurado
+
+sudo updatedb - força a atualização do banco de dados interno do sistema (só pode ser realizado pelo usuário root)
+
+which [comando](ex: firefox,gedit,chmod,locate,etc...) - mostra qual arquivo será executado quando digitarmos o comando
+
+
+Usuarios e controle de acesso:
+sudo [comando] - realiza o comando como usuario root
+
+passwd - para mudar a senha do usuário atual
+sudo passwd - mudar a senha do usuario root
+
+su [nome do usuario](ex: root) - para logar como o usuario
+
+sudo adduser [nome] - cria um novo usuario, só pode ser feito pelo root
+
+chmod o-rx [usuario] - tira a permissão de leitura e execução dos outros para a pasta do usuario
+
