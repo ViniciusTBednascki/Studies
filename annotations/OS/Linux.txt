@@ -5,6 +5,8 @@ man [comando] (mostra a documentção do comando)
 
 cat [nome do arquivo] | grep [palavra procurada] (esse comando manda a saída para que o grep filtre apenas a linhas do texto com a palavra procurada)
 
+ls -a (Mostra todos os arquivos e diretórios, até os ocultos)
+
 Visualizando e terminando processos:
 pstree (mostra um diagrama no qual é possível identificar quem originou (processo pai) cada um dos processos (processo filho))
 
@@ -44,7 +46,7 @@ ls -l (mostra as permissões aos arquivos e a qual usuario eles pertencem)
 
 chmod [grupo](ex: u/g/o)[alteração da permissão](ex: +x/-x, +w/-w, +r/-r) [nome do arquivo] - adciona/retira a permissão de execução,escrita ou leitura do arquivo para o grupo de usuarios definido(se não for definido nenhum grupo a alteração será feita para todos os usuarios)
 
-Para que arquivo seja executado usando somente o nome ele deve estar na pasta /usr/bin/
+Para que arquivo seja executado de qualquer local por qualquer usuario ele deve estar na pasta /usr/bin/
 
 
 Procurar arquivos:
@@ -67,3 +69,43 @@ sudo adduser [nome] - cria um novo usuario, só pode ser feito pelo root
 
 chmod o-rx [usuario] - tira a permissão de leitura e execução dos outros para a pasta do usuario
 
+
+Variaveis de ambiente e PATH:
+env - lista todas as variáveis de ambiente do sistema.
+
+PATH=$PATH:[diretório](ex: /home/vinicius/workspace) - Adciona o diretório ao PATH para que possa ser acessado de qualquer local (só funciona durante a sessão atual do bash)
+
+Para adcionar um diretório permanentemente ao PATH é preciso editar no diretório do usuário o arquivo .bashrc (é o arquivo que o sistema lê toda vez que inicia o bash)
+Adcionando o comando no final do arquivo: PATH=$PATH:[diretório](ex: /home/vinicius/workspace)
+
+As variáveis de ambiente são variáveis globais que podemos utilizar para definir configurações, personalizar nosso terminal. Quando executamos o comando env, podemos ver quais são as variáveis que estão definidas. A variável HOME, por exemplo, guarda o caminho para o diretório do usuário. A variável PATH, guarda informações de onde estão nossos arquivos executáveis para que possamos executar um comando sem a necessidade de digitar o caminho absoluto.
+
+wc - comando utilizado para contar as linhas, palavras e caracteres dos arquivos. ex: wc -w *.txt (conta as palavras de todos os textos no diretório)
+
+ps -e | wc -l - pode ser usado para saber quantos processos estão rodando no momento
+
+echo $[nome da variavel] - pode ser utilizado para ver o conteudo atual da variavel
+
+PS1 - é a variável que guarda a formatação do que aparecerá no terminal.
+
+
+Instalando programas:
+O linux possue o gerenciador de pacotes apt
+O comando apt reune os comando mais utilizados do apt-get e do apt-cache em um só lugar e de uma maneira mais "amigável".
+
+sudo apt update - atualiza a lista de pacotes disponiveis para instalação
+sudo apt upgrade - atualiza o sistema, atualizando para novas versões os pacotes já instalados
+
+apt search [palavra](ex: ftp) - lista os pacotes disponiveis que tenham essa palavra
+apt show  [pacote](ex: mysql-server-8.0 - mostra informações detalhadas sobre o pacote
+
+sudo apt install [pacote](ex: vsftpd) - instalar o pacote disponivel
+sudo apt remove [pacote](ex: vsftpd) - desinstalar o pacote
+
+Para instalar programas que não se encontram no repositorio central do linux, é preciso primeiro baixar o pacote em formato .deb(formato compátivel com o linux) e instala-lo com o dpkg:
+sudo dpkg -i [nome do pacote baixado](ex: google-chrome-stable_current_amd64.deb) - instala o pacote .deb baixado
+
+Pode acontecer que o dpkg não consiga resolver as dependencias do pacote, para resolver esse problema usa-se o comando:
+sudo apt -f install - Comando para resolver as dependencias e instalar os pacotes necessários
+
+sudo dpkg -r [nome do pacote instalado](ex: google-chrome-stable) - desinstala o pacote.
