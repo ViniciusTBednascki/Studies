@@ -1,11 +1,13 @@
-Organização de arquivos:
-https://guialinux.uniriotec.br/tar/
+du -s [diretorio] - comando que retorna o tamanho do diretorio
+df [diretorio] - comando que retorna o espaço livre, ou ocupado, de cada partição no sistema
 
 man [comando] (mostra a documentção do comando)
 
 cat [nome do arquivo] | grep [palavra procurada] (esse comando manda a saída para que o grep filtre apenas a linhas do texto com a palavra procurada)
 
 ls -a (Mostra todos os arquivos e diretórios, até os ocultos)
+
+tar xzf [nome do pacote] (extrai os arquivos do pacote)
 
 Visualizando e terminando processos:
 pstree (mostra um diagrama no qual é possível identificar quem originou (processo pai) cada um dos processos (processo filho))
@@ -51,6 +53,7 @@ Para que arquivo seja executado de qualquer local por qualquer usuario ele deve 
 
 Procurar arquivos:
 locate [nome do arquivo] - lista todos os arquivos no sistema com o nome procurado
+find [diretorio](ex: /) -(i)name [nome] - procura no diretorio informado arquivos e subdiretorios que contenham esse nome, usa-se o i antes do name para deixar de ser case-sensitive.
 
 sudo updatedb - força a atualização do banco de dados interno do sistema (só pode ser realizado pelo usuário root)
 
@@ -109,3 +112,39 @@ Pode acontecer que o dpkg não consiga resolver as dependencias do pacote, para 
 sudo apt -f install - Comando para resolver as dependencias e instalar os pacotes necessários
 
 sudo dpkg -r [nome do pacote instalado](ex: google-chrome-stable) - desinstala o pacote.
+
+
+Scripts de inicialização e serviços do sistema:
+sudo service [nome do serviço](ex: vsftpd) stop (manda o sinal para que o serviço pare)
+
+/etc/init.d/ - é a pasta em que ficam os scripts que irão iniciar os serviços quando a máquina é ligada, esses scripts também são usados para parar e iniciar os serviços.
+
+
+Compilando programas a partir do código fonte:
+Primero é preciso baixar o código fonte, geralmente compactado, o melhor é em formato tar pois fica salvo as configurações de acesso do pacote.
+Depois extrai os arquivos do pacote com:  tar xzf [nome do pacote]
+Os pacotes quando possuem dependencia necessária para seu funcionamento tem em seu código fonte o scripit configure para resolver as dependencias.
+Para ter certeza ao compilar a partir do código fonte o melhor é procurar a documentação do programa, como do GIT por exemplo:
+https://git-scm.com/book/en/v2/Getting-Started-Installing-Git
+
+
+Acesso remoto:
+sudo apt install ssh - para instalar tanto o ssh-client como o ssh-server na máquina
+
+ssh [username]@[máquina] - para estabelecer uma conexão remota com o usuario da máquina
+
+ssh -X [username]@[máquina] - para estabelecer uma conexão remota em modo gráfico com o usuario da máquina, assim temos acesso a processos gráficos como o firefox.
+
+scp (-r, para transferir arquivos de maneira recursiva) [arquivo] [username]@[máquina]:[diretório] - para estabelcer uma conexão SCP e transferir o arquivo para o diretório da máquina remota
+
+
+Criando comandos:
+alias [apelido](ex: atualizar)='[comando]'(ex: sudo apt-get update && sudo apt-get upgrade) - cria um apelido para o comando, porém isso funcionará apenas para a sessão atual do bash.
+Para adicionar esse apelido permanentemente é preciso inserir essa linha de comando no arquivo .bashrc na home do usuário e se quiser que seja utilizado por todos usuários é preciso inserir essa linha de comando no arquivo etc/profile
+
+
+Agendando tarefas com CRON:
+https://www.alura.com.br/artigos/como-visualizar-o-tamanho-de-diretorios-no-linux
+https://en.wikipedia.org/wiki/Cron
+
+crontab -e 
