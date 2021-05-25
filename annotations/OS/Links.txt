@@ -1,0 +1,10 @@
+LINUX(Debian):
+https://www.alura.com.br/artigos/comecando-com-o-terminal-manipulando-arquivos-e-diretorios
+https://www.alura.com.br/artigos/comandos-basicos-ao-utilizar-o-vim
+https://www.alura.com.br/artigos/entendendo-as-permissoes-no-linux
+https://www.alura.com.br/artigos/como-recuperar-senha-de-root-no-linux
+https://www.alura.com.br/artigos/como-visualizar-o-tamanho-de-diretorios-no-linux
+https://www.alura.com.br/artigos/procurando-arquivos-no-linux
+https://www.alura.com.br/artigos/criando-comandos-no-linux-com-bash
+https://guialinux.uniriotec.br/
+https://en.wikipedia.org/wiki/Cron
