@@ -1,0 +1,43 @@
+HTTP - Hypertext Transfer Protocol
+
+URI: URL e URN.
+
+O HTTP é um conjunto de regras de comunicação muito utilizado na internet com o modelo Client-Server.
+
+Outro modelo de comunicação é P2P (Peer-to-peer), em que ao invés de comunicação se concentrar em um servidor, como no HTTP, todos os computadores atuam tanto como servidor e como cliente.
+
+Um dos problemas com a comunicação HTTP é que os dados podem ser lidos por qualquer um que consiga intermediar essa comunicação, para evitar esse problema de segurança foi estabelecido o HTTPS que é o protocolo HTTP junto do SSL/TLS (Secure Sockets Layer/Transport Layer Security)
+A comunicação é feita criptografando o dados utilizando a chave pública disponibilizada para o browser e depois a descripitografia é feita no servidor com a chave privada.
+
+Existem dois tipos de criptografia:
+Simétrica - a mesma chave é utilizada para criptografar e descriptografar a informação. Essa forma é mais rápida porém menos segura
+Assimétrica - utiliza duas chaves diferentes, uma para criptografar e outra para descriptografar a informação. Essa forma é mais segura porém lenta.
+
+O HTTPS utiliza as duas formas de criptografia, utiliza-se na primeira comunicação a criptografia Assimétrica para transmitir uma chave que ficará guardada com o browser e o servidor, essa chave de criptografia simétrica será usada então em comunicações posteriores.
+
+O acesso aos servidores é feito em portas definidas, como por exemplo a porta 80 (HTTP), 443 (HTTPS), 22 (SSH), 21 (FTP), etc. 
+A porta em que uma comunicação será pode ser alterada no servidor.
+
+A URL são endereços da WEB. A URL começa com o protocolo (HTTPS://) seguido do dominio (www.alura.com.br), após o dominio pode ser específicado o caminho para o recurso (course/introducao-html-css). Um recuros é algo concreto que queremos acessar.
+
+O protocolo HTTP segue o modelo Requisição-Resposta
+
+Sessão:
+o HTTP é statless (não mantém informações entre requisições), uma requisição precisa ter todas as informações para gerar a resposta.
+Ao enviar as informações de login para ao servidor ele devolve um código para que o browser guarde e utilize nas próximas vezes que for necessário enviar informações pelo mesmo usuário, isso é feito para que não seja necessário ficar enviando as informações como login e senha todas as vezes que o browser for fazer uma requisição ao servidor.
+Uma sessão HTTP nada mais é que um tempo que o cliente permanece ativo no sistema! Isso é parecido com uma sessão no cinema. Uma sessão, nesse contexto, é o tempo que o cliente usa a sala no cinema para assistir a um filme. Quando você sai da sala, termina a sessão. Ou seja, quando você se desloga, a Alura termina a sua sessão.
+
+Quando falamos de Cookies na verdade queremos dizer Cookies HTTP ou Cookie web. Um cookie é um pequeno arquivo de texto, normalmente criado pela aplicação web, para guardar algumas informações sobre usuário no navegador. Quais são essas informações depende um pouco da aplicação. Pode ser que fique gravado alguma preferência do usuário. Ou algumas informações sobre as compras na loja virtual ou, como vimos no vídeo, a identificação do usuário. Isso depende da utilidade para a aplicação web.
+
+
+Ao entrar em uma página o navegador faz de uma requisição para cada elemento da página, como o html, css, logo, imagens, etc.
+Ao utilizar um método HTTP, como GET ou POST, recebemos uma resposta, o código de estado dessa respota pode ser 200 dizendo que tudo ocorreu certo, ou pode ser um código de estado indicando o erro que ocorreu, como 404 dizendo que não foi possível encontrar a página. 
+301 moved permantly, informa ao nevegador e redireciona para outra URL.
+500 Internal server error, informa que houve um erro do lado do servidor.
+
+Os Status codes podem ser separados em:
+2XX - Successful reponses
+3XX - Redirection messages
+4XX - Client error responses
+5XX - server error responses
+https://www.w3schools.com/tags/ref_httpmessages.asp

@@ -1,0 +1,2 @@
+https://www.w3schools.com/tags/ref_httpmessages.asp
+https://httpstatuses.com/
