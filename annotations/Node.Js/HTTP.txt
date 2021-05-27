@@ -41,3 +41,32 @@ Os Status codes podem ser separados em:
 4XX - Client error responses
 5XX - server error responses
 https://www.w3schools.com/tags/ref_httpmessages.asp
+
+
+Parametros na requisicição:
+Ao utilizar o método GET os parâmetros são passados pela junto da URL depois do recuro e logo após o simbolo "?" e são separados pelo simbolo "&" como por exemplo: 
+https://www.youtube.com/results?search_query=nerdologia&sp=CAI%253D	onde os parametros são: search_query=nerdologia e sp=CAI%253D
+https://endereco/recurso?nome_do_parametro=seu_valor&nome_do_outro_param=valor
+Isso é útil quando é necessário repetir a requisição com os mesmos parametros.
+
+GET é normalmente usado para pesquisas, mas isso depende um pouco de como a plataforma e o desenvolvedor usam esse método. Na vida real, vocês vão encontrar muitos exemplos que usam requisições do tipo GET, não só para pesquisas. O protocolo HTTP define que o GET deve ser utilizado apenas para acessar os dados, mas HTTP, como protocolo, não pode impedir o desenvolvedor de fazer algo diferente.
+
+O método POST deixa os parâmetros no corpo da requisição, assim evita que informações importantes, como a senha, fiquem explícitas na URL. 
+
+Os parametros podem ser definidos para serem passados na própria URL, ex: http://viacep.com.br/ws/20040030/json.
+Nesse exemplo é definido que o número após o ws/ é p CEP e o próximo valor é o formato da resposta como JSON ou XML
+Um Web Service disponibiliza uma funcionalidade na web, através do protocolo HTTP. As funcionalidades variam muito e dependem muito da empresa e do negócio dela, mas por exemplo, na Alura temos um Web Service que traz todas as informações de um curso (nome, capítulos, exercícios, etc). O Google ou Facebook possuem muitos Web Services para acessar um usuário, ver os posts dele, interesses, etc. Muitas vezes esses serviços são pagos.
+O importante é que sempre usamos o protocolo HTTP. A grande diferença de um Web Service é que os dados não vem no formato HTML, e sim em algum formato independente da visualização, como XML ou JSON. 
+
+Métodos HTML:
+GET - receber dados (parametros na URL)
+POST - submeter dados (parametros no corpo da requisição)
+DELETE - remover um recurso
+PUT - atualizar um recurso
+
+Por padrão, as páginas HTML fazem apenas requisições do tipo GET ou POST. Para o tipo POST especificamente, precisamos fazer uso da tag form, configurando o atributo method como POST, ao invés do seu valor padrão que é GET. O outro caso é quando usamos a tag a que cria um link de uma página para outra, fazendo com o que o navegador execute uma requisição do tipo GET.
+
+Serviços Web com REST:
+Para a comunicação entre os serviços na Web utiliza-se formatos padrões para enviar e receber dados como o XML e o JSON, ao fazer uma requisição o serviço pode informar em qual formato deve ser a resposta com 
+Accept: application/json, Accept: text/html, Accept: text/css, Accept: application/xml, Accept:image/jpeg e Accept: image/*
+
