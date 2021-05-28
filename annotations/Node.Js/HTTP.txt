@@ -70,3 +70,25 @@ Serviços Web com REST:
 Para a comunicação entre os serviços na Web utiliza-se formatos padrões para enviar e receber dados como o XML e o JSON, ao fazer uma requisição o serviço pode informar em qual formato deve ser a resposta com 
 Accept: application/json, Accept: text/html, Accept: text/css, Accept: application/xml, Accept:image/jpeg e Accept: image/*
 
+REST (Representational State Transfer)
+	RECURSO (URI)
+	OPERAÇÔES (GET/POST/DELETE/PUT)
+	REPRESENTAÇÃO (JSON/XML/HTML)
+É um padrão arquitetural para comunicações entre aplicações, recursos são definidos via URI.
+
+Em alguns cabeçalhos do HTTP devemos especificar algum formato. Os formatos são chamados na documentação de MIME types. E na definição do cabeçalho usamos a seguinte estrutura: tipo/subtipo. 
+ex: text, image, application, audio e video
+
+
+HTTP/2:
+Uma das mudanças na nova versão do HTTP é que o corpo da resposta é trafegado de forma zipada, muitas vezes utilizando o algoritimo de GZIP. Isso é feito para o tráfego de dados seja menor, assim levando em conta os dispositivos móveis e a largura de banda menor.
+
+Também os cabeçalhos do request e do response são enviados em formato binário para uma maior otimizição da comunicação. O HTTP/2 traz também outro algoritimo para compresão dos cabeçalhos, o HPACK, tornando a comunicação ainda mais rápida para a necessidade atual.
+Por padrão outra função que essa nova versão traz é o cripitografia dos dados utilizando TLS.
+O HPACK é uma tecnologia especializada em comprimir os Headers das comunicações HTTP/2. Como toda requisição HTTP acompanha algum header por padrão, uma tecnologia de compressão embutida no protocolo é demasiadamente útil para economizar dados trafegados.
+
+HEADERS STATEFUL - No HTTP/2 não há mais a necessidade de reenviar as mesmas informações no cabeçalho das que foram enviadas em requisições anteriores no mesmo host, assim só há a necessidade de enviar no cabeçalho novas informações como diferentes tipos de formatos de resposta ou a mudança para um sub-domínio, diminuindo assim o tráfego de dados na comunicação.
+
+SERVER PUSH - Nessa nova versão servidor quando recebe uma requisição de página envia junto da resposta principal as resposta de outros recursos necessários para carregar a página como o CSS, o Script, imagens e logos. Assim o navegador não precisará fazer uma nova requisição para cada componente economizando tempo e tráfego de dados.
+
+Multiplexação - No HTTP1.1 para não ser necessário fazer uma conexão TCP toda vez que ocorre-se uma requisição ao servidor utiliza-se o recurso Keep-Alive para que a conexão TCP não feche e o servidor possa ter de 4 a 8 conexões simultaneas com o navegador. No HTTP/2 a comunicação é Assincrona, não mais serial, assim não há necessidade de esperar pela resposta para fazer uma nova requisição tornando a conexão mais rápida.
