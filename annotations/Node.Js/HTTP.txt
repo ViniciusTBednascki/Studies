@@ -54,7 +54,7 @@ GET é normalmente usado para pesquisas, mas isso depende um pouco de como a pla
 O método POST deixa os parâmetros no corpo da requisição, assim evita que informações importantes, como a senha, fiquem explícitas na URL. 
 
 Os parametros podem ser definidos para serem passados na própria URL, ex: http://viacep.com.br/ws/20040030/json.
-Nesse exemplo é definido que o número após o ws/ é p CEP e o próximo valor é o formato da resposta como JSON ou XML
+Nesse exemplo é definido que o número após o ws/ é o CEP e o próximo valor é o formato da resposta como JSON ou XML
 Um Web Service disponibiliza uma funcionalidade na web, através do protocolo HTTP. As funcionalidades variam muito e dependem muito da empresa e do negócio dela, mas por exemplo, na Alura temos um Web Service que traz todas as informações de um curso (nome, capítulos, exercícios, etc). O Google ou Facebook possuem muitos Web Services para acessar um usuário, ver os posts dele, interesses, etc. Muitas vezes esses serviços são pagos.
 O importante é que sempre usamos o protocolo HTTP. A grande diferença de um Web Service é que os dados não vem no formato HTML, e sim em algum formato independente da visualização, como XML ou JSON. 
 
