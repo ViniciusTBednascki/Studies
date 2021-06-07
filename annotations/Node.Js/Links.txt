@@ -1,2 +1,7 @@
+HTTP:
 https://www.w3schools.com/tags/ref_httpmessages.asp
 https://httpstatuses.com/
+
+Curl:
+https://curl.se/docs/
+https://www.hostinger.com.br/tutoriais/comando-curl-linux

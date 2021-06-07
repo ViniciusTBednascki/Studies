@@ -1,0 +1,37 @@
+Projeto de exemplo está no repositorio: */Projeto_NodeJS
+
+O NPM possue o pacote express para criação de servidores
+
+para inicializar o servidor utliza o comando .listen(), indicando a porta que será escutada e que função irá rodar na inicialização
+ex: const app = express();
+app.listen(3000, () => console.log("Escutando na porta 3000"))
+
+Porém para que a comunicação HTTPS funcione é preciso dizer o que irá acontecer quando o servidor receber uma requisição como o GET por exemplo:
+app.get('/atendimento', (req, res) => res.send("Você está na rota de atendimento"))
+
+Para baixar pacotes que serão utilizados somente no ambiente de desenvolvimento e não serão necessários na produção usa a tag: --save-dev ao instalar o pacote, ex:
+npm install --save-dev nodemon
+
+Nodemon é um pacote para o desenvolvimento que automatiza o processo de atualização do servidor, assim não é preciso ficar derrubando e iniciando o servidor manualmente a cada modificação do código. Inicializa-se o servidor como o comando:
+nodemon index.js
+
+No package.json podem ser criados scripts para facilitar o processo de desenvolvimento e produção, como por exemploa a inicialização do servidor:
+"scripts": {
+	"start": "node index.js"
+}
+
+O pacote Consign tem como função fazer o load automatico dos módulos para a instancia criada pelo Express
+
+Exitem diversas maneiras e ferramentas para fazer o teste de APIs entre elas estão:
+POSTMAN
+Curl
+
+Para conseguir interpretar o conteúdo (urlencoded, json, etc.) enviado pelas requisições é necessário bibliotecas especificas para isso como:
+body-parser
+
+exemplo de uso: app.use(bodyParser.urlencoded({extended: true}))
+    		app.use(bodyParser.json())
+
+Para utilizar o banco de dados é preciso instalar o pacote mysql e ter o mysql server
+
+Para lidar com datas uma boa biblioteca é a moment
