@@ -5,3 +5,9 @@ https://httpstatuses.com/
 Curl:
 https://curl.se/docs/
 https://www.hostinger.com.br/tutoriais/comando-curl-linux
+
+Node:
+https://www.alura.com.br/artigos/descomplicando-o-trabalho-com-node
+https://cursos.alura.com.br/debugando-projetos-nodejs-no-vscode-c23
+https://nodejs.org/api/events.html#events_class_eventemitter
+https://nodejs.org/api/modules.html#modules_core_modules

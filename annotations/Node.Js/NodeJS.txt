@@ -35,3 +35,28 @@ exemplo de uso: app.use(bodyParser.urlencoded({extended: true}))
 Para utilizar o banco de dados é preciso instalar o pacote mysql e ter o mysql server
 
 Para lidar com datas uma boa biblioteca é a moment
+
+O NodeJS possue o NVM (Node Version Manager) que é um gerenciador de versões do Node e pode ser utilizado para installar e utilizar diferentes versões do Node na mesma máquina.
+
+Para utilizar um debugger o node pode utilizar a flag: --inspect e assim podemos fazer um attach ao programa em execução e fazer um debug mais facilmente.
+
+A leitura e escrita de arquivos é feita utilizando a biblioteca fs (file system). A leitura de arquivo pode ser feita utilizando um buffer com a função: readFile(), porém essa é uma função síncrona o que pode deixar o programa muito lento se o arquivo for grande, por isso o mais recomendado é utilizar uma stream com: createReadStream(), que funciona de maneira assíncrona.
+Por ser uma função assíncrona e não ter uma função de callback é preciso utilizar a função: .pipe() para realizar o processamento da stream após a leitura do arquivo.
+Para chamar uma função após o término do processamento da stream pode-se usar a função: on('finish') para escutar o evento.
+
+Mesmo que o motor do javascript onde o Node é executado seja síncrono o Node consegue utilizar funções assíncronas delegandos essas para terceiros como o Chrome WebApi ou C++ API e que após serem finalizadas seram colacadas no callback queue e inseridas após a execução das funções síncronas no Stack JS
+
+
+
+Stream é uma instância da classe EventEmitter, que está dentro do módulo nativo events (eventos).
+
+Todo EventEmitter emite:
+
+    o evento “newListener” quando um novo listener é adicionado
+    e “removeListener” quando um listener é removido. 
+
+Legal, mas no que isso importa pra gente? Bom, esses eventos são ouvidos por um listener e, como a stream é uma instância da classe EventEmitter, ela também trabalha esperando por eventos serem desencadeados, emite eventos que adicionam e removem listeners e, dessa forma, entram no event loop do javascript!
+
+Além do módulo events, o Node.js possui diversos outros módulos nativos compilados em binário à nossa disposição que você pode conferir na página de Core Modules do Node.js.
+
+
