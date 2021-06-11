@@ -1,0 +1,4 @@
+Modificar data de criação, última modificação e último acesso:
+$(Get-Item FILENAME.EXT).creationtime=$(Get-Date "MM/DD/YYYY HH:mm am/pm")
+$(Get-Item FILENAME.EXT).lastaccesstime=$(Get-Date "MM/DD/YYYY HH:mm am/pm")
+$(Get-Item FILENAME.EXT).lastwritetime=$(Get-Date "MM/DD/YYYY HH:mm am/pm")
