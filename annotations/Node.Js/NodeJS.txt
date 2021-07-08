@@ -2,6 +2,8 @@ Projeto de exemplo está no repositorio: */Projeto_NodeJS
 
 O NPM possue o pacote express para criação de servidores
 
+Para iniciar o projeto utiliza-se o comando: npm init
+
 para inicializar o servidor utliza o comando .listen(), indicando a porta que será escutada e que função irá rodar na inicialização
 ex: const app = express();
 app.listen(3000, () => console.log("Escutando na porta 3000"))
@@ -59,4 +61,8 @@ Legal, mas no que isso importa pra gente? Bom, esses eventos são ouvidos por um
 
 Além do módulo events, o Node.js possui diversos outros módulos nativos compilados em binário à nossa disposição que você pode conferir na página de Core Modules do Node.js.
 
+Um pacote para comunicação com outras APIs é o AXIOS
 
+Para que criar módulos que possam ser utilizados em outros arquivos utiliza-se o module.exports para definir o que poderá ser utilizado por outros programas ao importarem esse arquivo com o require(), como funções ou objetos.
+
+Uma biblioteca para mexer com banco de dados é a Sequelize

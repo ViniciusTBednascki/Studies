@@ -1,6 +1,10 @@
 HTTP:
 https://www.w3schools.com/tags/ref_httpmessages.asp
 https://httpstatuses.com/
+https://developer.mozilla.org/pt-BR/docs/Web/HTTP/Headers
+https://developer.mozilla.org/pt-BR/docs/Web/HTTP/CORS
+https://developer.mozilla.org/pt-BR/docs/Web/HTTP/Methods/OPTIONS
+https://semver.org/lang/pt-BR/
 
 Curl:
 https://curl.se/docs/

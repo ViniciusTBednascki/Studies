@@ -1,0 +1,14 @@
+A api é acessada em rotas definidas e em cada rota podem existir diferentes métodos, como GET, POST, PUT, DELETE e cada um deles terá o seu tratamento específico das informações.
+
+Quando se está criando um api o padrão é que utilize /api após o domínio+porta e então a coleção de documentos como /fornecedores que podem ser seguidos de identificadores como /1 para informações de um documento em específico. Cada documento pode conter também uma subcoleção de documentos, ex: /produtos, e os documentos tanto da coleção quanto da subcoleção podem ter um controller para ações do documento como /diminuir-estoque. Ex:
+http://localhost:300/api/fornecedores/1/produtos/1/diminuir-estoque
+
+Para a ação de um documento (controller) utiiza-se o método POST passando no corpo da requisição as informações para a utilização dessa ação.
+
+Para economia de processamento e transferencia de dados pode-se utilizar o método HEAD para se obter informações específicas dos documentos, como a última data de atualização por exemplo.
+
+Para acessar e fazer requisições de APIs pode-se usar o comando fetch(url) do javascript.
+
+O CORS é um mecanismo de segurança que impede como padrão a requisição entre APIs de domínios diferentes. Para a comunicação entre dominios diferentes é necessário definir a requisição OPTIONS e definir o 'Access-Control-Allow-Methods' para indicar quais métodos são permitidos e 'Access-Control-Allow-Headers' para indicar quais são os cabeçalhos permitidos na requisição.
+
+Os versionamentos podem ser feitos seguindo o padrão SEMVER.
